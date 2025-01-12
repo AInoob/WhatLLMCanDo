@@ -46,7 +46,7 @@
         {
           "name": "Gemini 1.5 Pro",
           "company": "Google",
-          "iconUrl": "/assets/logos/gemini_logo.svg",
+          "iconUrl": "/assets/logos/gemini.svg",
           "notable_features": ["128k context window", "Efficient processing", "Strong coding performance"]
         }
       ]
@@ -133,7 +133,7 @@
         {
           "name": "GitHub Copilot",
           "company": "GitHub/OpenAI",
-          "iconUrl": "/assets/logos/github_copilot.svg",
+          "iconUrl": "/assets/logos/openai.svg",
           "notable_features": [
             "Real-time code suggestions",
             "IDE integration",
@@ -180,7 +180,7 @@
         {
           "name": "Gemini 1.5 Pro",
           "company": "Google",
-          "iconUrl": "/assets/logos/gemini_logo.svg",
+          "iconUrl": "/assets/logos/gemini.svg",
           "notable_features": ["Advanced multimodal processing", "Cross-modal reasoning", "Video understanding"]
         },
         {
