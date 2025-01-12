@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "last_updated": "2024-01-16",
-    "version": "1.0"
+    "last_updated": "2024-02-15",
+    "version": "1.1"
   },
   "capabilities": {
     "chat": {
@@ -18,9 +18,12 @@
               "description": "Maintains context across conversation turns",
               "supported_by": {
                 "Claude 3 Opus": { "status": "full", "details": "200k token context" },
+                "Claude 3.5 Sonnet": { "status": "full", "details": "128k token context" },
                 "Claude 3 Sonnet": { "status": "full", "details": "128k token context" },
                 "Claude 3 Haiku": { "status": "full", "details": "32k token context" },
                 "GPT-4 Turbo": { "status": "full", "details": "128k token context" },
+                "GPT-4o": { "status": "full", "details": "128k token context" },
+                "GPT-o1": { "status": "full", "details": "128k token context" },
                 "GPT-4V": { "status": "full", "details": "128k token context" },
                 "GPT-3.5": { "status": "partial", "details": "16k token context" },
                 "Gemini Ultra": { "status": "full", "details": "128k token context" },
@@ -33,9 +36,12 @@
               "description": "Support for multiple languages",
               "supported_by": {
                 "Claude 3 Opus": { "status": "full", "details": "100+ languages" },
+                "Claude 3.5 Sonnet": { "status": "full", "details": "100+ languages" },
                 "Claude 3 Sonnet": { "status": "full", "details": "100+ languages" },
                 "Claude 3 Haiku": { "status": "full", "details": "Major languages" },
                 "GPT-4 Turbo": { "status": "full", "details": "All major languages" },
+                "GPT-4o": { "status": "full", "details": "All major languages" },
+                "GPT-o1": { "status": "full", "details": "All major languages" },
                 "GPT-4V": { "status": "full", "details": "All major languages" },
                 "GPT-3.5": { "status": "full", "details": "All major languages" },
                 "Gemini Ultra": { "status": "full", "details": "All major languages" },
@@ -55,8 +61,11 @@
               "description": "Solving complex mathematical problems",
               "supported_by": {
                 "Claude 3 Opus": { "status": "full", "details": "Highest MMLU math" },
+                "Claude 3.5 Sonnet": { "status": "full", "details": "44.67% SWE-bench" },
                 "Claude 3 Sonnet": { "status": "full", "details": "Strong math performance" },
                 "GPT-4 Turbo": { "status": "full", "details": "90th percentile UBE" },
+                "GPT-4o": { "status": "full", "details": "Enhanced performance" },
+                "GPT-o1": { "status": "full", "details": "Latest optimizations" },
                 "Gemini Ultra": { "status": "full", "details": "Top MMLU scores" },
                 "Gemini 1.5 Pro": { "status": "partial", "details": "GPQA 62.1%" }
               }
@@ -65,8 +74,11 @@
               "description": "Step-by-step logical reasoning",
               "supported_by": {
                 "Claude 3 Opus": { "status": "full", "details": "Best-in-class reasoning" },
+                "Claude 3.5 Sonnet": { "status": "full", "details": "Enhanced reasoning" },
                 "Claude 3 Sonnet": { "status": "full", "details": "Strong reasoning" },
                 "GPT-4 Turbo": { "status": "full", "details": "Advanced reasoning" },
+                "GPT-4o": { "status": "full", "details": "Optimized reasoning" },
+                "GPT-o1": { "status": "full", "details": "Latest reasoning capabilities" },
                 "Gemini Ultra": { "status": "full", "details": "Advanced reasoning" },
                 "Gemini 1.5 Pro": { "status": "full", "details": "Strong reasoning" }
               }
@@ -80,6 +92,12 @@
           "company": "Anthropic",
           "iconUrl": "/assets/logos/anthropic.png",
           "notable_features": ["93.7% HumanEval score", "200k token context window", "Best-in-class reasoning"]
+        },
+        {
+          "name": "Claude 3.5 Sonnet",
+          "company": "Anthropic",
+          "iconUrl": "/assets/logos/anthropic.png",
+          "notable_features": ["44.67% SWE-bench score", "128k token context", "Enhanced code capabilities"]
         },
         {
           "name": "Claude 3 Sonnet",
@@ -98,6 +116,18 @@
           "company": "OpenAI",
           "iconUrl": "/assets/logos/openai.svg",
           "notable_features": ["Strong multimodal capabilities", "Advanced reasoning", "128k context window"]
+        },
+        {
+          "name": "GPT-4o",
+          "company": "OpenAI",
+          "iconUrl": "/assets/logos/openai.svg",
+          "notable_features": ["Optimized for code tasks", "Enhanced reasoning", "SWE-bench optimized"]
+        },
+        {
+          "name": "GPT-o1",
+          "company": "OpenAI",
+          "iconUrl": "/assets/logos/openai.svg",
+          "notable_features": ["Latest model variant", "Advanced optimizations", "Improved capabilities"]
         },
         {
           "name": "GPT-4V",
