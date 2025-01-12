@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Player, News, Subsection, CodingTool } from '../types/llm';
+import { Player, Subsection } from '../types/llm';
 import MaturityScore from './MaturityScore';
-import CodingToolsTable from './CodingToolsTable';
 import PlayerFeatureTable from './PlayerFeatureTable';
+import SubcategoryPopup from './SubcategoryPopup';
 
 interface CapabilityCardProps {
   title: string;
@@ -11,9 +11,8 @@ interface CapabilityCardProps {
   stage: 'mature' | 'emerging' | 'early';
   score: number;
   subsections?: { [key: string]: Subsection };
-  tool_comparison?: { [key: string]: CodingTool };
+
   players: Player[];
-  news: News[];
 }
 
 const CapabilityCard: React.FC<CapabilityCardProps> = ({
@@ -22,10 +21,15 @@ const CapabilityCard: React.FC<CapabilityCardProps> = ({
   stage,
   score,
   subsections,
-  tool_comparison,
   players,
-  news,
 }) => {
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const [selectedSubsection, setSelectedSubsection] = useState<{name: string; data: Subsection} | null>(null);
+
+  const handleSubsectionClick = (name: string, section: Subsection) => {
+    setSelectedSubsection({ name, data: section });
+    setIsPopupOpen(true);
+  };
   const stageColors: Record<CapabilityCardProps['stage'], string> = {
     mature: 'bg-green-100 text-green-800',
     emerging: 'bg-yellow-100 text-yellow-800',
@@ -49,16 +53,18 @@ const CapabilityCard: React.FC<CapabilityCardProps> = ({
       </div>
       <p className="text-gray-600 dark:text-gray-300 mb-6">{description}</p>
       
-      {title === 'Coding' && tool_comparison && (
-        <CodingToolsTable tools={tool_comparison} />
-      )}
+
       
       {subsections && (
         <div className="mb-6">
           <h4 className="text-lg font-semibold mb-3">Subsections</h4>
           <div className="space-y-4">
             {Object.entries(subsections).map(([name, section]: [string, Subsection], index) => (
-              <div key={index} className="border-l-4 border-blue-500 pl-4">
+              <div 
+                key={index} 
+                className="border-l-4 border-blue-500 pl-4 cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors rounded-sm"
+                onClick={() => handleSubsectionClick(name, section)}
+              >
                 <div className="flex justify-between items-center">
                   <div className="font-medium">
                     {name.split('_').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}
@@ -102,17 +108,16 @@ const CapabilityCard: React.FC<CapabilityCardProps> = ({
         </div>
       </div>
 
-      <div>
-        <h4 className="text-lg font-semibold mb-3">Recent News</h4>
-        <div className="space-y-3">
-          {news.map((item, index) => (
-            <div key={index} className="border-b border-gray-200 dark:border-gray-700 pb-2">
-              <div className="text-sm font-medium">{item.title}</div>
-              <div className="text-xs text-gray-500">{item.date}</div>
-            </div>
-          ))}
-        </div>
-      </div>
+
+      {isPopupOpen && selectedSubsection && (
+        <SubcategoryPopup
+          isOpen={isPopupOpen}
+          onClose={() => setIsPopupOpen(false)}
+          title={selectedSubsection.name.split('_').map((word: string) => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}
+          description={selectedSubsection.data.description}
+          players={players}
+        />
+      )}
     </motion.div>
   );
 };

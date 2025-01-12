@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import CapabilityCard from '../components/CapabilityCard';
 import llmCapabilitiesJson from '../data/llm_capabilities.json';
 import { CapabilitiesData } from '../types/llm';
+import IssueButton from '../components/IssueButton';
 
 const capabilities = llmCapabilitiesJson as CapabilitiesData;
 
@@ -54,15 +55,13 @@ const Home = observer(() => {
                 stage={capability.stage}
                 score={capability.score}
                 subsections={capability.subsections}
-                tool_comparison={capability.tool_comparison}
                 players={capability.top_players}
-                news={capability.recent_news}
               />
             </motion.div>
           ))}
       </div>
 
-
+      <IssueButton />
     </motion.main>
   );
 });
