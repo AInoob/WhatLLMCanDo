@@ -1,8 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Player, News, Subsection, CodingTool } from '../types/llm';
+import { Player, News, Subsection } from '../types/llm';
 import MaturityScore from './MaturityScore';
-import CodingToolsTable from './CodingToolsTable';
 import PlayerFeatureTable from './PlayerFeatureTable';
 
 interface CapabilityCardProps {
@@ -11,7 +10,7 @@ interface CapabilityCardProps {
   stage: 'mature' | 'emerging' | 'early';
   score: number;
   subsections?: { [key: string]: Subsection };
-  tool_comparison?: { [key: string]: CodingTool };
+
   players: Player[];
   news: News[];
 }
@@ -22,7 +21,7 @@ const CapabilityCard: React.FC<CapabilityCardProps> = ({
   stage,
   score,
   subsections,
-  tool_comparison,
+
   players,
   news,
 }) => {
@@ -49,9 +48,7 @@ const CapabilityCard: React.FC<CapabilityCardProps> = ({
       </div>
       <p className="text-gray-600 dark:text-gray-300 mb-6">{description}</p>
       
-      {title === 'Coding' && tool_comparison && (
-        <CodingToolsTable tools={tool_comparison} />
-      )}
+
       
       {subsections && (
         <div className="mb-6">

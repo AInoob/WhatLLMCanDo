@@ -41,22 +41,8 @@ export interface Subsection extends MaturityData {
   };
 }
 
-export interface ToolCapabilities {
-  code_completion: string;
-  code_modification: string;
-  pr_review: string;
-  agentic_programming: string;
-}
-
-export interface CodingTool {
-  name: string;
-  company: string;
-  capabilities: ToolCapabilities;
-}
-
 export interface Capability extends MaturityData {
   subsections?: { [key: string]: Subsection };
-  tool_comparison?: { [key: string]: CodingTool };
   top_players: Player[];
   recent_news: News[];
 }
