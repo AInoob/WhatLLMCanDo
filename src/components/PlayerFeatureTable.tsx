@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import { Player } from '../types/llm';
 
 interface FeatureSupport {
@@ -53,10 +54,12 @@ const PlayerFeatureTable: React.FC<PlayerFeatureTableProps> = ({ features, playe
               <th key={player.name} className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
                 <div className="flex items-center space-x-2">
                   {player.iconUrl && (
-                    <img 
+                    <Image 
                       src={player.iconUrl} 
                       alt={`${player.name} icon`}
-                      className="w-4 h-4 rounded-full"
+                      width={16}
+                      height={16}
+                      className="rounded-full"
                     />
                   )}
                   <span>{player.name}</span>

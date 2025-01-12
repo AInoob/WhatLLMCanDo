@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import { Player, Feature } from '../types/llm';
 import PlayerFeatureTable from './PlayerFeatureTable';
 
@@ -58,10 +59,12 @@ const SubcategoryPopup: React.FC<SubcategoryPopupProps> = ({
                 {supportedPlayers.map((player, index) => (
                   <div key={index} className="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
                     {player.iconUrl && (
-                      <img 
+                      <Image 
                         src={player.iconUrl} 
                         alt={`${player.name} icon`}
-                        className="w-8 h-8 mb-2 rounded-full"
+                        width={32}
+                        height={32}
+                        className="mb-2 rounded-full"
                       />
                     )}
                     <div className="font-medium">{player.name}</div>
@@ -97,10 +100,12 @@ const SubcategoryPopup: React.FC<SubcategoryPopupProps> = ({
                           <th key={player.name} className="text-left text-sm font-medium text-gray-500 dark:text-gray-400 pb-3">
                             <div className="flex items-center space-x-2">
                               {player.iconUrl && (
-                                <img 
+                                <Image 
                                   src={player.iconUrl} 
                                   alt={`${player.name} icon`}
-                                  className="w-4 h-4 rounded-full"
+                                  width={16}
+                                  height={16}
+                                  className="rounded-full"
                                 />
                               )}
                               <span>{player.name}</span>

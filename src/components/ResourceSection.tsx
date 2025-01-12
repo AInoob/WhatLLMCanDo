@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 export interface Resource {
   title: string;
@@ -48,10 +49,13 @@ export function ResourceSection({ resources, type }: ResourceSectionProps) {
           >
             {resource.thumbnail && (
               <div className="relative h-40 bg-gray-100">
-                <img
+                <Image
                   src={resource.thumbnail}
                   alt={resource.title}
-                  className="w-full h-full object-cover"
+                  width={320}
+                  height={160}
+                  className="object-cover"
+                  style={{ width: '100%', height: '100%' }}
                 />
                 {type === 'video' && (
                   <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-20">

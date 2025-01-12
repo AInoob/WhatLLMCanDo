@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import { Player, Subsection } from '../types/llm';
 import MaturityScore from './MaturityScore';
 import PlayerFeatureTable from './PlayerFeatureTable';
@@ -112,10 +113,12 @@ const CapabilityCard: React.FC<CapabilityCardProps> = ({
             <div key={index} className="border-l-4 border-blue-500 pl-4">
               <div className="flex items-center space-x-2">
                 {player.iconUrl && (
-                  <img 
+                  <Image 
                     src={player.iconUrl} 
                     alt={`${player.name} icon`}
-                    className="w-6 h-6 rounded-full"
+                    width={24}
+                    height={24}
+                    className="rounded-full"
                   />
                 )}
                 <div>
