@@ -31,11 +31,6 @@ export interface Player {
   };
 }
 
-export interface News {
-  date: string;
-  title: string;
-}
-
 export interface Subsection extends MaturityData {
   features?: {
     [key: string]: Feature;
@@ -45,7 +40,6 @@ export interface Subsection extends MaturityData {
 export interface Capability extends MaturityData {
   subsections?: { [key: string]: Subsection };
   top_players: Player[];
-  recent_news: News[];
 }
 
 export interface CapabilitiesData {

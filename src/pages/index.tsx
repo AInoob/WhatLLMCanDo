@@ -54,9 +54,7 @@ const Home = observer(() => {
                 stage={capability.stage}
                 score={capability.score}
                 subsections={capability.subsections}
-                tool_comparison={capability.tool_comparison}
                 players={capability.top_players}
-                news={capability.recent_news}
               />
             </motion.div>
           ))}

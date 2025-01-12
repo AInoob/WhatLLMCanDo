@@ -32,32 +32,22 @@
       },
       "top_players": [
         {
-          "name": "GPT-4",
-          "company": "OpenAI",
-          "iconUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4d/OpenAI_Logo.svg",
-          "notable_features": ["Most advanced general-purpose LLM", "Multimodal capabilities", "Outperforms other models on most benchmarks"]
-        },
-        {
-          "name": "Claude 3.5",
+          "name": "Claude 3 Opus",
           "company": "Anthropic",
           "iconUrl": "https://anthropic.com/favicon.ico",
-          "notable_features": ["Constitutional AI", "Enhanced understanding of nuance and humor", "Faster processing"]
+          "notable_features": ["93.7% HumanEval score", "200k token context window", "Best-in-class reasoning"]
         },
         {
-          "name": "Gemini Ultra",
+          "name": "GPT-4 Turbo",
+          "company": "OpenAI",
+          "iconUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4d/OpenAI_Logo.svg",
+          "notable_features": ["Strong multimodal capabilities", "Advanced reasoning", "Comprehensive API"]
+        },
+        {
+          "name": "Gemini 1.5 Pro",
           "company": "Google",
-          "iconUrl": "https://www.gstatic.com/lamda/images/favicon_v1_150160cddff7f294ce30.svg",
-          "notable_features": ["Multimodal capabilities", "Integrated with Google services", "Strong benchmark performance"]
-        }
-      ],
-      "recent_news": [
-        {
-          "date": "2024-01",
-          "title": "Google releases Gemini Ultra, outperforming GPT-4 on most benchmarks"
-        },
-        {
-          "date": "2024-01",
-          "title": "Claude 3.5 Sonnet released with 2x speed improvement"
+          "iconUrl": "https://www.gstatic.com/lamda/images/gemini_logo_color_72.svg",
+          "notable_features": ["128k context window", "Efficient processing", "Strong coding performance"]
         }
       ]
     },
@@ -141,71 +131,73 @@
       },
       "top_players": [
         {
+          "name": "Claude 3.5 Sonnet",
+          "company": "Anthropic",
+          "iconUrl": "https://anthropic.com/favicon.ico",
+          "notable_features": ["93.7% HumanEval score", "Advanced code analysis", "Strong reasoning capabilities"]
+        },
+        {
           "name": "GitHub Copilot",
           "company": "GitHub/OpenAI",
-          "notable_features": ["Real-time code suggestions", "Multiple language support", "IDE integration"]
+          "iconUrl": "https://github.githubassets.com/favicons/favicon.svg",
+          "notable_features": ["Real-time code suggestions", "IDE integration", "Context-aware completions"]
         },
         {
-          "name": "Devin",
-          "company": "Cognition Labs",
-          "notable_features": ["Autonomous development", "Advanced reasoning", "Full-stack capabilities"]
-        }
-      ],
-      "recent_news": [
-        {
-          "date": "2024-01",
-          "title": "GitHub Copilot introduces enhanced security features"
-        },
-        {
-          "date": "2024-03",
-          "title": "Devin demonstrates advanced autonomous development capabilities"
+          "name": "Gemini 1.5 Pro",
+          "company": "Google",
+          "iconUrl": "https://www.gstatic.com/lamda/images/gemini_logo_color_72.svg",
+          "notable_features": ["Strong coding performance", "Efficient processing", "Multimodal code understanding"]
         }
       ]
     },
     "multimodal_understanding": {
-      "score": 65,
+      "score": 75,
       "stage": "emerging",
       "description": "Processing and understanding multiple types of input (text, images, audio)",
       "top_players": [
         {
-          "name": "Gemini Ultra",
+          "name": "Gemini 1.5 Pro",
           "company": "Google",
-          "notable_features": ["Text, image, and audio processing", "Cross-modal reasoning"]
+          "iconUrl": "https://www.gstatic.com/lamda/images/gemini_logo_color_72.svg",
+          "notable_features": ["Advanced multimodal processing", "Cross-modal reasoning", "Video understanding"]
         },
         {
           "name": "GPT-4V",
           "company": "OpenAI",
-          "notable_features": ["Vision capabilities", "Image understanding and analysis"]
-        }
-      ],
-      "recent_news": [
+          "iconUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4d/OpenAI_Logo.svg",
+          "notable_features": ["High-resolution image analysis", "Detailed visual reasoning", "OCR capabilities"]
+        },
         {
-          "date": "2024-01",
-          "title": "Google Gemini demonstrates advanced multimodal capabilities"
+          "name": "Claude 3 Vision",
+          "company": "Anthropic",
+          "iconUrl": "https://anthropic.com/favicon.ico",
+          "notable_features": ["Advanced image understanding", "Detailed visual analysis", "Mathematical diagram comprehension"]
         }
       ]
     },
     "reasoning_and_problem_solving": {
-      "score": 60,
+      "score": 75,
       "stage": "emerging",
       "description": "Complex reasoning, mathematical problem-solving, and logical deduction",
-      "limitations": ["Accuracy issues with complex calculations", "Inconsistent logical reasoning"],
+      "limitations": ["Some inconsistency in complex calculations", "Occasional logical gaps"],
       "top_players": [
         {
-          "name": "GPT-4",
-          "company": "OpenAI",
-          "notable_features": ["Advanced reasoning capabilities", "Step-by-step problem solving"]
+          "name": "Claude 3 Opus",
+          "company": "Anthropic",
+          "iconUrl": "https://anthropic.com/favicon.ico",
+          "notable_features": ["84.5% MMLU score", "Transparent reasoning process", "Mathematical proof verification"]
         },
         {
-          "name": "Claude",
-          "company": "Anthropic",
-          "notable_features": ["Strong analytical capabilities", "Transparent reasoning process"]
-        }
-      ],
-      "recent_news": [
+          "name": "GPT-4 Turbo",
+          "company": "OpenAI",
+          "iconUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4d/OpenAI_Logo.svg",
+          "notable_features": ["80.5% MMLU score", "Step-by-step problem solving", "Chain-of-thought reasoning"]
+        },
         {
-          "date": "2024-01",
-          "title": "New benchmarks show improvement in LLM reasoning capabilities"
+          "name": "Gemini 1.5 Pro",
+          "company": "Google",
+          "iconUrl": "https://www.gstatic.com/lamda/images/gemini_logo_color_72.svg",
+          "notable_features": ["Strong mathematical reasoning", "Efficient processing", "Multimodal problem solving"]
         }
       ]
     },
@@ -229,12 +221,6 @@
           "company": "Anthropic",
           "notable_features": ["Enhanced security features", "Custom knowledge integration"]
         }
-      ],
-      "recent_news": [
-        {
-          "date": "2024-01",
-          "title": "OpenAI introduces enhanced enterprise security features"
-        }
       ]
     },
     "contextual_memory": {
@@ -247,12 +233,6 @@
           "name": "Claude",
           "company": "Anthropic",
           "notable_features": ["Improved context retention", "Better conversation memory"]
-        }
-      ],
-      "recent_news": [
-        {
-          "date": "2024-01",
-          "title": "Research shows progress in extending LLM context windows"
         }
       ]
     }

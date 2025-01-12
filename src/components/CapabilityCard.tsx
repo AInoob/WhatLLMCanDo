@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Player, News, Subsection } from '../types/llm';
+import { Player, Subsection } from '../types/llm';
 import MaturityScore from './MaturityScore';
 import PlayerFeatureTable from './PlayerFeatureTable';
 import SubcategoryPopup from './SubcategoryPopup';
@@ -13,7 +13,6 @@ interface CapabilityCardProps {
   subsections?: { [key: string]: Subsection };
 
   players: Player[];
-  news: News[];
 }
 
 const CapabilityCard: React.FC<CapabilityCardProps> = ({
@@ -23,7 +22,6 @@ const CapabilityCard: React.FC<CapabilityCardProps> = ({
   score,
   subsections,
   players,
-  news,
 }) => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [selectedSubsection, setSelectedSubsection] = useState<{name: string; data: Subsection} | null>(null);
@@ -110,17 +108,7 @@ const CapabilityCard: React.FC<CapabilityCardProps> = ({
         </div>
       </div>
 
-      <div>
-        <h4 className="text-lg font-semibold mb-3">Recent News</h4>
-        <div className="space-y-3">
-          {news.map((item, index) => (
-            <div key={index} className="border-b border-gray-200 dark:border-gray-700 pb-2">
-              <div className="text-sm font-medium">{item.title}</div>
-              <div className="text-xs text-gray-500">{item.date}</div>
-            </div>
-          ))}
-        </div>
-      </div>
+
       {isPopupOpen && selectedSubsection && (
         <SubcategoryPopup
           isOpen={isPopupOpen}
