@@ -127,6 +127,15 @@ const CapabilityCard: React.FC<CapabilityCardProps> = ({
           title={selectedSubsection.name.split('_').map((word: string) => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}
           description={selectedSubsection.data.description}
           players={players}
+          features={selectedSubsection.data.features}
+          benchmarks={[
+            {
+              name: 'Maturity Score',
+              scores: {
+                [players[0].name]: `${selectedSubsection.data.score}/100`
+              }
+            }
+          ]}
         />
       )}
     </motion.div>

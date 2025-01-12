@@ -19,93 +19,56 @@
               "supported_by": {
                 "Claude 3 Opus": { "status": "full", "details": "200k token context" },
                 "Claude 3 Sonnet": { "status": "full", "details": "128k token context" },
+                "Claude 3 Haiku": { "status": "full", "details": "32k token context" },
                 "GPT-4 Turbo": { "status": "full", "details": "128k token context" },
+                "GPT-4V": { "status": "full", "details": "128k token context" },
+                "GPT-3.5": { "status": "partial", "details": "16k token context" },
+                "Gemini Ultra": { "status": "full", "details": "128k token context" },
                 "Gemini 1.5 Pro": { "status": "full", "details": "128k token context" },
-                "Gemini 1.0 Pro": { "status": "partial", "details": "32k token context" }
+                "Gemini Pro": { "status": "partial", "details": "32k token context" },
+                "Gemini Exp-1206": { "status": "full", "details": "128k token context" }
               }
             },
             "multilingual": {
               "description": "Support for multiple languages",
               "supported_by": {
-                "Claude 3 Opus": { "status": "full" },
-                "Claude 3 Sonnet": { "status": "full" },
-                "GPT-4 Turbo": { "status": "full" },
-                "Gemini 1.5 Pro": { "status": "full" },
-                "Gemini 1.0 Pro": { "status": "full" }
+                "Claude 3 Opus": { "status": "full", "details": "100+ languages" },
+                "Claude 3 Sonnet": { "status": "full", "details": "100+ languages" },
+                "Claude 3 Haiku": { "status": "full", "details": "Major languages" },
+                "GPT-4 Turbo": { "status": "full", "details": "All major languages" },
+                "GPT-4V": { "status": "full", "details": "All major languages" },
+                "GPT-3.5": { "status": "full", "details": "All major languages" },
+                "Gemini Ultra": { "status": "full", "details": "All major languages" },
+                "Gemini 1.5 Pro": { "status": "full", "details": "All major languages" },
+                "Gemini Pro": { "status": "full", "details": "All major languages" },
+                "Gemini Exp-1206": { "status": "full", "details": "All major languages" }
               }
             }
           }
         },
-        "programming_assistance": {
+        "reasoning_and_problem_solving": {
           "score": 85,
           "stage": "mature",
-          "description": "Answering programming questions and providing code explanations",
+          "description": "Complex reasoning, mathematical problem-solving, and logical deduction",
           "features": {
-            "code_explanation": {
-              "description": "Detailed explanation of code functionality",
-              "supported_by": {
-                "Claude 3 Opus": { "status": "full", "details": "93.7% HumanEval" },
-                "Claude 3 Sonnet": { "status": "full", "details": "90.2% HumanEval" },
-                "GPT-4 Turbo": { "status": "full", "details": "89.5% HumanEval" },
-                "Gemini 1.5 Pro": { "status": "full", "details": "92.9% Natural2Code" }
-              }
-            },
-            "debugging": {
-              "description": "Identifying and fixing code issues",
-              "supported_by": {
-                "Claude 3 Opus": { "status": "full" },
-                "Claude 3 Sonnet": { "status": "full" },
-                "GPT-4 Turbo": { "status": "full" },
-                "Gemini 1.5 Pro": { "status": "partial" }
-              }
-            }
-          }
-        },
-        "reasoning": {
-          "score": 70,
-          "stage": "emerging",
-          "description": "Complex problem-solving and logical deduction in conversations",
-          "features": {
-            "multi_step_reasoning": {
-              "description": "Breaking down complex problems into steps",
-              "supported_by": {
-                "Claude 3 Opus": { "status": "full", "details": "Best MMLU score" },
-                "Claude 3 Sonnet": { "status": "full" },
-                "GPT-4 Turbo": { "status": "full", "details": "90th percentile UBE" },
-                "Gemini 1.5 Pro": { "status": "full", "details": "MMLU-Pro 76.4%" }
-              }
-            },
             "mathematical_reasoning": {
-              "description": "Solving mathematical problems step by step",
+              "description": "Solving complex mathematical problems",
               "supported_by": {
-                "Claude 3 Opus": { "status": "full" },
-                "GPT-4 Turbo": { "status": "full" },
+                "Claude 3 Opus": { "status": "full", "details": "Highest MMLU math" },
+                "Claude 3 Sonnet": { "status": "full", "details": "Strong math performance" },
+                "GPT-4 Turbo": { "status": "full", "details": "90th percentile UBE" },
+                "Gemini Ultra": { "status": "full", "details": "Top MMLU scores" },
                 "Gemini 1.5 Pro": { "status": "partial", "details": "GPQA 62.1%" }
               }
-            }
-          }
-        },
-        "contextual_understanding": {
-          "score": 85,
-          "stage": "mature",
-          "description": "Understanding and maintaining context throughout conversations",
-          "features": {
-            "long_context": {
-              "description": "Processing and understanding long documents",
-              "supported_by": {
-                "Claude 3 Opus": { "status": "full", "details": "200k tokens" },
-                "Claude 3 Sonnet": { "status": "full", "details": "128k tokens" },
-                "GPT-4 Turbo": { "status": "full", "details": "128k tokens" },
-                "Gemini 1.5 Pro": { "status": "full", "details": "128k tokens" }
-              }
             },
-            "cross_reference": {
-              "description": "Connecting information across different parts of conversation",
+            "logical_deduction": {
+              "description": "Step-by-step logical reasoning",
               "supported_by": {
-                "Claude 3 Opus": { "status": "full" },
-                "Claude 3 Sonnet": { "status": "full" },
-                "GPT-4 Turbo": { "status": "full" },
-                "Gemini 1.5 Pro": { "status": "partial" }
+                "Claude 3 Opus": { "status": "full", "details": "Best-in-class reasoning" },
+                "Claude 3 Sonnet": { "status": "full", "details": "Strong reasoning" },
+                "GPT-4 Turbo": { "status": "full", "details": "Advanced reasoning" },
+                "Gemini Ultra": { "status": "full", "details": "Advanced reasoning" },
+                "Gemini 1.5 Pro": { "status": "full", "details": "Strong reasoning" }
               }
             }
           }
@@ -119,16 +82,58 @@
           "notable_features": ["93.7% HumanEval score", "200k token context window", "Best-in-class reasoning"]
         },
         {
+          "name": "Claude 3 Sonnet",
+          "company": "Anthropic",
+          "iconUrl": "/assets/logos/anthropic.png",
+          "notable_features": ["90.2% HumanEval score", "128k token context", "Balanced performance"]
+        },
+        {
+          "name": "Claude 3 Haiku",
+          "company": "Anthropic",
+          "iconUrl": "/assets/logos/anthropic.png",
+          "notable_features": ["Fast inference", "Efficient processing", "Cost-effective"]
+        },
+        {
           "name": "GPT-4 Turbo",
           "company": "OpenAI",
           "iconUrl": "/assets/logos/openai.svg",
-          "notable_features": ["Strong multimodal capabilities", "Advanced reasoning", "Comprehensive API"]
+          "notable_features": ["Strong multimodal capabilities", "Advanced reasoning", "128k context window"]
+        },
+        {
+          "name": "GPT-4V",
+          "company": "OpenAI",
+          "iconUrl": "/assets/logos/openai.svg",
+          "notable_features": ["Advanced vision capabilities", "High-res image analysis", "Detailed visual reasoning"]
+        },
+        {
+          "name": "GPT-3.5",
+          "company": "OpenAI",
+          "iconUrl": "/assets/logos/openai.svg",
+          "notable_features": ["Fast response time", "Cost-effective", "Wide API support"]
+        },
+        {
+          "name": "Gemini Ultra",
+          "company": "Google",
+          "iconUrl": "/assets/logos/gemini.png",
+          "notable_features": ["Top MMLU scores", "Advanced reasoning", "Strong multimodal capabilities"]
         },
         {
           "name": "Gemini 1.5 Pro",
           "company": "Google",
-          "iconUrl": "/assets/logos/gemini.svg",
+          "iconUrl": "/assets/logos/gemini.png",
           "notable_features": ["128k context window", "Efficient processing", "Strong coding performance"]
+        },
+        {
+          "name": "Gemini Pro",
+          "company": "Google",
+          "iconUrl": "/assets/logos/gemini.png",
+          "notable_features": ["Balanced performance", "Cost-effective", "Wide API support"]
+        },
+        {
+          "name": "Gemini Exp-1206",
+          "company": "Google",
+          "iconUrl": "/assets/logos/gemini.png",
+          "notable_features": ["Experimental features", "Latest improvements", "Research focus"]
         }
       ]
     },
@@ -394,7 +399,7 @@
         {
           "name": "Gemini 1.5 Pro",
           "company": "Google",
-          "iconUrl": "/assets/logos/gemini.svg",
+          "iconUrl": "/assets/logos/gemini.png",
           "notable_features": ["Advanced multimodal processing", "Cross-modal reasoning", "Video understanding"]
         },
         {

@@ -1,5 +1,6 @@
 import React from 'react';
-import { Player } from '../types/llm';
+import { Player, Feature } from '../types/llm';
+import PlayerFeatureTable from './PlayerFeatureTable';
 
 interface SubcategoryPopupProps {
   isOpen: boolean;
@@ -7,15 +8,10 @@ interface SubcategoryPopupProps {
   title: string;
   description: string;
   players: Player[];
-  articles?: Array<{
-    title: string;
-    url: string;
-    description: string;
-  }>;
-  videos?: Array<{
-    title: string;
-    url: string;
-    thumbnail?: string;
+  features?: { [key: string]: Feature };
+  benchmarks?: Array<{
+    name: string;
+    scores: { [player: string]: string };
   }>;
 }
 
@@ -25,8 +21,8 @@ const SubcategoryPopup: React.FC<SubcategoryPopupProps> = ({
   title,
   description,
   players,
-  articles = [],
-  videos = [],
+  features = {},
+  benchmarks = [],
 }) => {
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
@@ -73,54 +69,52 @@ const SubcategoryPopup: React.FC<SubcategoryPopupProps> = ({
               </div>
             </div>
 
-            {/* Articles Section */}
-            {articles.length > 0 && (
+            {/* Feature Support Table */}
+            {Object.keys(features).length > 0 && (
               <div>
-                <h3 className="text-lg font-semibold mb-3">Related Articles</h3>
-                <div className="space-y-3">
-                  {articles.map((article, index) => (
-                    <a
-                      key={index}
-                      href={article.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="block bg-gray-50 dark:bg-gray-800 p-4 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
-                    >
-                      <div className="font-medium">{article.title}</div>
-                      <div className="text-sm text-gray-600 dark:text-gray-400 mt-1">
-                        {article.description}
-                      </div>
-                    </a>
-                  ))}
-                </div>
+                <h3 className="text-lg font-semibold mb-3">Feature Support</h3>
+                <PlayerFeatureTable features={features} players={players} />
               </div>
             )}
 
-            {/* Videos Section */}
-            {videos.length > 0 && (
+            {/* Benchmark Scores */}
+            {benchmarks.length > 0 && (
               <div>
-                <h3 className="text-lg font-semibold mb-3">Related Videos</h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  {videos.map((video, index) => (
-                    <a
-                      key={index}
-                      href={video.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="block bg-gray-50 dark:bg-gray-800 rounded-lg overflow-hidden hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
-                    >
-                      {video.thumbnail && (
-                        <img
-                          src={video.thumbnail}
-                          alt={video.title}
-                          className="w-full object-cover aspect-video"
-                        />
-                      )}
-                      <div className="p-4">
-                        <div className="font-medium">{video.title}</div>
-                      </div>
-                    </a>
-                  ))}
+                <h3 className="text-lg font-semibold mb-3">Benchmark Performance</h3>
+                <div className="bg-gray-50 dark:bg-gray-900 rounded-lg p-4">
+                  <table className="min-w-full">
+                    <thead>
+                      <tr>
+                        <th className="text-left text-sm font-medium text-gray-500 dark:text-gray-400 pb-3">Benchmark</th>
+                        {players.map((player) => (
+                          <th key={player.name} className="text-left text-sm font-medium text-gray-500 dark:text-gray-400 pb-3">
+                            <div className="flex items-center space-x-2">
+                              {player.iconUrl && (
+                                <img 
+                                  src={player.iconUrl} 
+                                  alt={`${player.name} icon`}
+                                  className="w-4 h-4 rounded-full"
+                                />
+                              )}
+                              <span>{player.name}</span>
+                            </div>
+                          </th>
+                        ))}
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {benchmarks.map((benchmark, index) => (
+                        <tr key={index} className="border-t border-gray-200 dark:border-gray-700">
+                          <td className="py-3 text-sm font-medium">{benchmark.name}</td>
+                          {players.map((player) => (
+                            <td key={player.name} className="py-3 text-sm">
+                              {benchmark.scores[player.name] || 'N/A'}
+                            </td>
+                          ))}
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
                 </div>
               </div>
             )}
