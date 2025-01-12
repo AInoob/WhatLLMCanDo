@@ -34,7 +34,7 @@
         {
           "name": "Claude 3 Opus",
           "company": "Anthropic",
-          "iconUrl": "/assets/logos/anthropic.svg",
+          "iconUrl": "/assets/logos/anthropic.png",
           "notable_features": ["93.7% HumanEval score", "200k token context window", "Best-in-class reasoning"]
         },
         {
@@ -192,7 +192,7 @@
         {
           "name": "Claude 3 Vision",
           "company": "Anthropic",
-          "iconUrl": "/assets/logos/anthropic.svg",
+          "iconUrl": "/assets/logos/anthropic.png",
           "notable_features": ["Advanced image understanding", "Detailed visual analysis", "Mathematical diagram comprehension"]
         }
       ]
