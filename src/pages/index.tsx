@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import CapabilityCard from '../components/CapabilityCard';
 import llmCapabilitiesJson from '../data/llm_capabilities.json';
 import { CapabilitiesData } from '../types/llm';
+import IssueButton from '../components/IssueButton';
 
 const capabilities = llmCapabilitiesJson as CapabilitiesData;
 
@@ -60,7 +61,7 @@ const Home = observer(() => {
           ))}
       </div>
 
-
+      <IssueButton />
     </motion.main>
   );
 });

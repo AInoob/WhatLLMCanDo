@@ -34,19 +34,19 @@
         {
           "name": "Claude 3 Opus",
           "company": "Anthropic",
-          "iconUrl": "https://anthropic.com/favicon.ico",
+          "iconUrl": "/assets/logos/anthropic.svg",
           "notable_features": ["93.7% HumanEval score", "200k token context window", "Best-in-class reasoning"]
         },
         {
           "name": "GPT-4 Turbo",
           "company": "OpenAI",
-          "iconUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4d/OpenAI_Logo.svg",
+          "iconUrl": "/assets/logos/openai.svg",
           "notable_features": ["Strong multimodal capabilities", "Advanced reasoning", "Comprehensive API"]
         },
         {
           "name": "Gemini 1.5 Pro",
           "company": "Google",
-          "iconUrl": "https://www.gstatic.com/lamda/images/gemini_logo_color_72.svg",
+          "iconUrl": "/assets/logos/gemini_logo.svg",
           "notable_features": ["128k context window", "Efficient processing", "Strong coding performance"]
         }
       ]
@@ -131,22 +131,44 @@
       },
       "top_players": [
         {
-          "name": "Claude 3.5 Sonnet",
-          "company": "Anthropic",
-          "iconUrl": "https://anthropic.com/favicon.ico",
-          "notable_features": ["93.7% HumanEval score", "Advanced code analysis", "Strong reasoning capabilities"]
-        },
-        {
           "name": "GitHub Copilot",
           "company": "GitHub/OpenAI",
-          "iconUrl": "https://github.githubassets.com/favicons/favicon.svg",
-          "notable_features": ["Real-time code suggestions", "IDE integration", "Context-aware completions"]
+          "iconUrl": "/assets/logos/github_copilot.svg",
+          "notable_features": [
+            "Real-time code suggestions",
+            "IDE integration",
+            "Context-aware completions"
+          ]
         },
         {
-          "name": "Gemini 1.5 Pro",
-          "company": "Google",
-          "iconUrl": "https://www.gstatic.com/lamda/images/gemini_logo_color_72.svg",
-          "notable_features": ["Strong coding performance", "Efficient processing", "Multimodal code understanding"]
+          "name": "Cursor",
+          "company": "Cursor",
+          "iconUrl": "/assets/logos/cursor.svg",
+          "notable_features": [
+            "Context-aware completions",
+            "AI-powered edits and refactoring",
+            "Basic code review capabilities"
+          ]
+        },
+        {
+          "name": "Windsurf",
+          "company": "Windsurf AI",
+          "iconUrl": "/assets/logos/windsurf.svg",
+          "notable_features": [
+            "Context-aware suggestions",
+            "Smart code transformations",
+            "Automated code review"
+          ]
+        },
+        {
+          "name": "all-hands.dev",
+          "company": "All Hands",
+          "iconUrl": "/assets/logos/all_hands.svg",
+          "notable_features": [
+            "Team-aware code suggestions",
+            "Collaborative code improvements",
+            "Team-focused code review"
+          ]
         }
       ]
     },
@@ -158,81 +180,20 @@
         {
           "name": "Gemini 1.5 Pro",
           "company": "Google",
-          "iconUrl": "https://www.gstatic.com/lamda/images/gemini_logo_color_72.svg",
+          "iconUrl": "/assets/logos/gemini_logo.svg",
           "notable_features": ["Advanced multimodal processing", "Cross-modal reasoning", "Video understanding"]
         },
         {
           "name": "GPT-4V",
           "company": "OpenAI",
-          "iconUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4d/OpenAI_Logo.svg",
+          "iconUrl": "/assets/logos/openai.svg",
           "notable_features": ["High-resolution image analysis", "Detailed visual reasoning", "OCR capabilities"]
         },
         {
           "name": "Claude 3 Vision",
           "company": "Anthropic",
-          "iconUrl": "https://anthropic.com/favicon.ico",
+          "iconUrl": "/assets/logos/anthropic.svg",
           "notable_features": ["Advanced image understanding", "Detailed visual analysis", "Mathematical diagram comprehension"]
-        }
-      ]
-    },
-    "reasoning_and_problem_solving": {
-      "score": 75,
-      "stage": "emerging",
-      "description": "Complex reasoning, mathematical problem-solving, and logical deduction",
-      "limitations": ["Some inconsistency in complex calculations", "Occasional logical gaps"],
-      "top_players": [
-        {
-          "name": "Claude 3 Opus",
-          "company": "Anthropic",
-          "iconUrl": "https://anthropic.com/favicon.ico",
-          "notable_features": ["84.5% MMLU score", "Transparent reasoning process", "Mathematical proof verification"]
-        },
-        {
-          "name": "GPT-4 Turbo",
-          "company": "OpenAI",
-          "iconUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4d/OpenAI_Logo.svg",
-          "notable_features": ["80.5% MMLU score", "Step-by-step problem solving", "Chain-of-thought reasoning"]
-        },
-        {
-          "name": "Gemini 1.5 Pro",
-          "company": "Google",
-          "iconUrl": "https://www.gstatic.com/lamda/images/gemini_logo_color_72.svg",
-          "notable_features": ["Strong mathematical reasoning", "Efficient processing", "Multimodal problem solving"]
-        }
-      ]
-    },
-    "enterprise_integration": {
-      "score": 35,
-      "stage": "early",
-      "description": "Integration with enterprise systems and handling of company-specific tasks",
-      "limitations": [
-        "Limited integration capabilities with transactional systems",
-        "Challenges with company-specific knowledge",
-        "Data privacy and security concerns"
-      ],
-      "top_players": [
-        {
-          "name": "Azure OpenAI Service",
-          "company": "Microsoft",
-          "notable_features": ["Enterprise-grade security", "Azure integration", "Custom deployment options"]
-        },
-        {
-          "name": "Claude Enterprise",
-          "company": "Anthropic",
-          "notable_features": ["Enhanced security features", "Custom knowledge integration"]
-        }
-      ]
-    },
-    "contextual_memory": {
-      "score": 30,
-      "stage": "early",
-      "description": "Long-term memory and context maintenance across conversations",
-      "limitations": ["Limited context window", "Difficulty maintaining long-term context"],
-      "top_players": [
-        {
-          "name": "Claude",
-          "company": "Anthropic",
-          "notable_features": ["Improved context retention", "Better conversation memory"]
         }
       ]
     }
