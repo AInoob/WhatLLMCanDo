@@ -1,0 +1,257 @@
+{
+  "metadata": {
+    "last_updated": "2024-01-16",
+    "version": "1.0"
+  },
+  "capabilities": {
+    "chat": {
+      "score": 85,
+      "stage": "mature",
+      "description": "Interactive conversation with various capabilities",
+      "subsections": {
+        "general_conversation": {
+          "score": 90,
+          "stage": "mature",
+          "description": "Natural language dialogue and contextually relevant responses"
+        },
+        "programming_assistance": {
+          "score": 85,
+          "stage": "mature",
+          "description": "Answering programming questions and providing code explanations"
+        },
+        "reasoning": {
+          "score": 70,
+          "stage": "emerging",
+          "description": "Complex problem-solving and logical deduction in conversations"
+        },
+        "contextual_understanding": {
+          "score": 85,
+          "stage": "mature",
+          "description": "Understanding and maintaining context throughout conversations"
+        }
+      },
+      "top_players": [
+        {
+          "name": "GPT-4",
+          "company": "OpenAI",
+          "notable_features": ["Most advanced general-purpose LLM", "Multimodal capabilities", "Outperforms other models on most benchmarks"]
+        },
+        {
+          "name": "Claude 3.5",
+          "company": "Anthropic",
+          "notable_features": ["Constitutional AI", "Enhanced understanding of nuance and humor", "Faster processing"]
+        },
+        {
+          "name": "Gemini Ultra",
+          "company": "Google",
+          "notable_features": ["Multimodal capabilities", "Integrated with Google services", "Strong benchmark performance"]
+        }
+      ],
+      "recent_news": [
+        {
+          "date": "2024-01",
+          "title": "Google releases Gemini Ultra, outperforming GPT-4 on most benchmarks"
+        },
+        {
+          "date": "2024-01",
+          "title": "Claude 3.5 Sonnet released with 2x speed improvement"
+        }
+      ]
+    },
+    "coding": {
+      "score": 80,
+      "stage": "mature",
+      "description": "Comprehensive code assistance and development capabilities",
+      "subsections": {
+        "code_completion": {
+          "score": 85,
+          "stage": "mature",
+          "description": "Real-time code suggestions and completions"
+        },
+        "code_modification": {
+          "score": 70,
+          "stage": "emerging",
+          "description": "Refactoring, optimization, and code improvements"
+        },
+        "pr_review": {
+          "score": 65,
+          "stage": "emerging",
+          "description": "Automated code review and feedback on pull requests"
+        },
+        "agentic_programming": {
+          "score": 40,
+          "stage": "early",
+          "description": "Autonomous coding and task completion capabilities"
+        }
+      },
+      "tool_comparison": {
+        "github_copilot": {
+          "name": "GitHub Copilot",
+          "company": "GitHub/OpenAI",
+          "capabilities": {
+            "code_completion": "Advanced real-time suggestions, multi-language support",
+            "code_modification": "Basic refactoring suggestions",
+            "pr_review": "Limited through GitHub Copilot Chat",
+            "agentic_programming": "Not available"
+          }
+        },
+        "cursor": {
+          "name": "Cursor",
+          "company": "Cursor",
+          "capabilities": {
+            "code_completion": "Context-aware completions",
+            "code_modification": "AI-powered edits and refactoring",
+            "pr_review": "Basic code review capabilities",
+            "agentic_programming": "Limited automation features"
+          }
+        },
+        "windsurf": {
+          "name": "Windsurf",
+          "company": "Windsurf AI",
+          "capabilities": {
+            "code_completion": "Context-aware suggestions",
+            "code_modification": "Smart code transformations",
+            "pr_review": "Automated code review",
+            "agentic_programming": "Basic task automation"
+          }
+        },
+        "devin": {
+          "name": "Devin",
+          "company": "Cognition Labs",
+          "capabilities": {
+            "code_completion": "Advanced completions with reasoning",
+            "code_modification": "Intelligent code modifications",
+            "pr_review": "Comprehensive PR analysis",
+            "agentic_programming": "Advanced autonomous development"
+          }
+        },
+        "all_hands": {
+          "name": "all-hands.dev",
+          "company": "All Hands",
+          "capabilities": {
+            "code_completion": "Team-aware code suggestions",
+            "code_modification": "Collaborative code improvements",
+            "pr_review": "Team-focused code review",
+            "agentic_programming": "Limited automation features"
+          }
+        }
+      },
+      "top_players": [
+        {
+          "name": "GitHub Copilot",
+          "company": "GitHub/OpenAI",
+          "notable_features": ["Real-time code suggestions", "Multiple language support", "IDE integration"]
+        },
+        {
+          "name": "Devin",
+          "company": "Cognition Labs",
+          "notable_features": ["Autonomous development", "Advanced reasoning", "Full-stack capabilities"]
+        }
+      ],
+      "recent_news": [
+        {
+          "date": "2024-01",
+          "title": "GitHub Copilot introduces enhanced security features"
+        },
+        {
+          "date": "2024-03",
+          "title": "Devin demonstrates advanced autonomous development capabilities"
+        }
+      ]
+    },
+    "multimodal_understanding": {
+      "score": 65,
+      "stage": "emerging",
+      "description": "Processing and understanding multiple types of input (text, images, audio)",
+      "top_players": [
+        {
+          "name": "Gemini Ultra",
+          "company": "Google",
+          "notable_features": ["Text, image, and audio processing", "Cross-modal reasoning"]
+        },
+        {
+          "name": "GPT-4V",
+          "company": "OpenAI",
+          "notable_features": ["Vision capabilities", "Image understanding and analysis"]
+        }
+      ],
+      "recent_news": [
+        {
+          "date": "2024-01",
+          "title": "Google Gemini demonstrates advanced multimodal capabilities"
+        }
+      ]
+    },
+    "reasoning_and_problem_solving": {
+      "score": 60,
+      "stage": "emerging",
+      "description": "Complex reasoning, mathematical problem-solving, and logical deduction",
+      "limitations": ["Accuracy issues with complex calculations", "Inconsistent logical reasoning"],
+      "top_players": [
+        {
+          "name": "GPT-4",
+          "company": "OpenAI",
+          "notable_features": ["Advanced reasoning capabilities", "Step-by-step problem solving"]
+        },
+        {
+          "name": "Claude",
+          "company": "Anthropic",
+          "notable_features": ["Strong analytical capabilities", "Transparent reasoning process"]
+        }
+      ],
+      "recent_news": [
+        {
+          "date": "2024-01",
+          "title": "New benchmarks show improvement in LLM reasoning capabilities"
+        }
+      ]
+    },
+    "enterprise_integration": {
+      "score": 35,
+      "stage": "early",
+      "description": "Integration with enterprise systems and handling of company-specific tasks",
+      "limitations": [
+        "Limited integration capabilities with transactional systems",
+        "Challenges with company-specific knowledge",
+        "Data privacy and security concerns"
+      ],
+      "top_players": [
+        {
+          "name": "Azure OpenAI Service",
+          "company": "Microsoft",
+          "notable_features": ["Enterprise-grade security", "Azure integration", "Custom deployment options"]
+        },
+        {
+          "name": "Claude Enterprise",
+          "company": "Anthropic",
+          "notable_features": ["Enhanced security features", "Custom knowledge integration"]
+        }
+      ],
+      "recent_news": [
+        {
+          "date": "2024-01",
+          "title": "OpenAI introduces enhanced enterprise security features"
+        }
+      ]
+    },
+    "contextual_memory": {
+      "score": 30,
+      "stage": "early",
+      "description": "Long-term memory and context maintenance across conversations",
+      "limitations": ["Limited context window", "Difficulty maintaining long-term context"],
+      "top_players": [
+        {
+          "name": "Claude",
+          "company": "Anthropic",
+          "notable_features": ["Improved context retention", "Better conversation memory"]
+        }
+      ],
+      "recent_news": [
+        {
+          "date": "2024-01",
+          "title": "Research shows progress in extending LLM context windows"
+        }
+      ]
+    }
+  }
+}
