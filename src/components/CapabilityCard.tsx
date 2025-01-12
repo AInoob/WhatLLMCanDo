@@ -96,8 +96,19 @@ const CapabilityCard: React.FC<CapabilityCardProps> = ({
         <div className="space-y-4">
           {players.map((player, index) => (
             <div key={index} className="border-l-4 border-blue-500 pl-4">
-              <div className="font-medium">{player.name}</div>
-              <div className="text-sm text-gray-500">{player.company}</div>
+              <div className="flex items-center space-x-2">
+                {player.iconUrl && (
+                  <img 
+                    src={player.iconUrl} 
+                    alt={`${player.name} icon`}
+                    className="w-6 h-6 rounded-full"
+                  />
+                )}
+                <div>
+                  <div className="font-medium">{player.name}</div>
+                  <div className="text-sm text-gray-500">{player.company}</div>
+                </div>
+              </div>
               <ul className="mt-2 list-disc list-inside text-sm">
                 {player.notable_features.map((feature, idx) => (
                   <li key={idx} className="text-gray-600 dark:text-gray-400">{feature}</li>

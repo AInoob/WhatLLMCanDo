@@ -43,13 +43,28 @@ const PlayerFeatureTable: React.FC<PlayerFeatureTableProps> = ({ features, playe
             </th>
             {players.map((player) => (
               <th key={player.name} className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
-                {player.name}
+                <div className="flex items-center space-x-2">
+                  {player.iconUrl && (
+                    <img 
+                      src={player.iconUrl} 
+                      alt={`${player.name} icon`}
+                      className="w-4 h-4 rounded-full"
+                    />
+                  )}
+                  <span>{player.name}</span>
+                </div>
               </th>
             ))}
           </tr>
         </thead>
         <tbody className="bg-white dark:bg-gray-900 divide-y divide-gray-200 dark:divide-gray-700">
-          {Object.entries(features).map(([featureName, feature], index) => (
+          {Object.entries(features)
+            .filter(([_, feature]) => 
+              Object.values(feature.supported_by).some(support => 
+                support.status === 'full' || support.status === 'partial'
+              )
+            )
+            .map(([featureName, feature], index) => (
             <motion.tr
               key={featureName}
               initial={{ opacity: 0, y: 20 }}
