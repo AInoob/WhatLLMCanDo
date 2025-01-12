@@ -34,16 +34,19 @@
         {
           "name": "GPT-4",
           "company": "OpenAI",
+          "iconUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4d/OpenAI_Logo.svg",
           "notable_features": ["Most advanced general-purpose LLM", "Multimodal capabilities", "Outperforms other models on most benchmarks"]
         },
         {
           "name": "Claude 3.5",
           "company": "Anthropic",
+          "iconUrl": "https://anthropic.com/favicon.ico",
           "notable_features": ["Constitutional AI", "Enhanced understanding of nuance and humor", "Faster processing"]
         },
         {
           "name": "Gemini Ultra",
           "company": "Google",
+          "iconUrl": "https://www.gstatic.com/lamda/images/favicon_v1_150160cddff7f294ce30.svg",
           "notable_features": ["Multimodal capabilities", "Integrated with Google services", "Strong benchmark performance"]
         }
       ],

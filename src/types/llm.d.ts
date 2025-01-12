@@ -25,6 +25,7 @@ export interface Player {
   name: string;
   company: string;
   notable_features: string[];
+  iconUrl?: string;
   feature_support?: {
     [feature: string]: FeatureSupport;
   };

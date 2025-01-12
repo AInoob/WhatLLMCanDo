@@ -57,6 +57,13 @@ const SubcategoryPopup: React.FC<SubcategoryPopupProps> = ({
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {players.map((player, index) => (
                 <div key={index} className="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
+                  {player.iconUrl && (
+                    <img 
+                      src={player.iconUrl} 
+                      alt={`${player.name} icon`}
+                      className="w-8 h-8 mb-2 rounded-full"
+                    />
+                  )}
                   <div className="font-medium">{player.name}</div>
                   <div className="text-sm text-gray-500">{player.company}</div>
                   <ul className="mt-2 list-disc list-inside text-sm">
