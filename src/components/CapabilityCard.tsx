@@ -27,7 +27,21 @@ const CapabilityCard: React.FC<CapabilityCardProps> = ({
   const [selectedSubsection, setSelectedSubsection] = useState<{name: string; data: Subsection} | null>(null);
 
   const handleSubsectionClick = (name: string, section: Subsection) => {
-    setSelectedSubsection({ name, data: section });
+    // Filter players to only show those with supported features
+    const supportedPlayers = players.filter(player => 
+      section.features ? Object.values(section.features).some(feature => 
+        feature.supported_by[player.name]?.status === 'full' || 
+        feature.supported_by[player.name]?.status === 'partial'
+      ) : true
+    );
+    
+    setSelectedSubsection({ 
+      name, 
+      data: {
+        ...section,
+        description: `${section.description}\n\nMaturity Score: ${section.score}/100 - ${section.stage.charAt(0).toUpperCase() + section.stage.slice(1)} Stage`
+      }
+    });
     setIsPopupOpen(true);
   };
   const stageColors: Record<CapabilityCardProps['stage'], string> = {

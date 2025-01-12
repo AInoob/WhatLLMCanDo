@@ -33,6 +33,14 @@ const PlayerFeatureTable: React.FC<PlayerFeatureTableProps> = ({ features, playe
     }
   };
 
+  // Filter out players with no supported features
+  const supportedPlayers = players.filter(player => 
+    Object.values(features).some(feature => 
+      feature.supported_by[player.name]?.status === 'full' || 
+      feature.supported_by[player.name]?.status === 'partial'
+    )
+  );
+
   return (
     <div className="mt-6 overflow-x-auto">
       <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
@@ -41,7 +49,7 @@ const PlayerFeatureTable: React.FC<PlayerFeatureTableProps> = ({ features, playe
             <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
               Feature
             </th>
-            {players.map((player) => (
+            {supportedPlayers.map((player) => (
               <th key={player.name} className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
                 <div className="flex items-center space-x-2">
                   {player.iconUrl && (
@@ -75,7 +83,7 @@ const PlayerFeatureTable: React.FC<PlayerFeatureTableProps> = ({ features, playe
                 <div>{featureName.split('_').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}</div>
                 <div className="text-xs text-gray-500">{feature.description}</div>
               </td>
-              {players.map((player) => {
+              {supportedPlayers.map((player) => {
                 const support = feature.supported_by[player.name] || { status: 'none' };
                 return (
                   <td key={player.name} className="px-6 py-4 whitespace-nowrap text-sm">

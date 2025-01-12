@@ -24,6 +24,13 @@ const SubcategoryPopup: React.FC<SubcategoryPopupProps> = ({
   features = {},
   benchmarks = [],
 }) => {
+  // Filter players to only show those with supported features
+  const supportedPlayers = players.filter(player => 
+    Object.values(features).some(feature => 
+      feature.supported_by[player.name]?.status === 'full' || 
+      feature.supported_by[player.name]?.status === 'partial'
+    )
+  );
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
       <div className="bg-white dark:bg-gray-800 rounded-lg max-w-3xl w-full max-h-[90vh] overflow-y-auto">
@@ -48,7 +55,7 @@ const SubcategoryPopup: React.FC<SubcategoryPopupProps> = ({
             <div>
               <h3 className="text-lg font-semibold mb-3">Top Players</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {players.map((player, index) => (
+                {supportedPlayers.map((player, index) => (
                   <div key={index} className="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
                     {player.iconUrl && (
                       <img 
@@ -86,7 +93,7 @@ const SubcategoryPopup: React.FC<SubcategoryPopupProps> = ({
                     <thead>
                       <tr>
                         <th className="text-left text-sm font-medium text-gray-500 dark:text-gray-400 pb-3">Benchmark</th>
-                        {players.map((player) => (
+                        {supportedPlayers.map((player) => (
                           <th key={player.name} className="text-left text-sm font-medium text-gray-500 dark:text-gray-400 pb-3">
                             <div className="flex items-center space-x-2">
                               {player.iconUrl && (
@@ -106,7 +113,7 @@ const SubcategoryPopup: React.FC<SubcategoryPopupProps> = ({
                       {benchmarks.map((benchmark, index) => (
                         <tr key={index} className="border-t border-gray-200 dark:border-gray-700">
                           <td className="py-3 text-sm font-medium">{benchmark.name}</td>
-                          {players.map((player) => (
+                          {supportedPlayers.map((player) => (
                             <td key={player.name} className="py-3 text-sm">
                               {benchmark.scores[player.name] || 'N/A'}
                             </td>
