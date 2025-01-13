@@ -119,8 +119,8 @@ const CapabilityCard: React.FC<CapabilityCardProps> = ({
                     width={24}
                     height={24}
                     className="rounded-full"
-                    loader={({ src }) => src}
                     unoptimized
+                    loader={({ src }) => src.startsWith('/') ? src : `/${src}`}
                   />
                 )}
                 <div>
