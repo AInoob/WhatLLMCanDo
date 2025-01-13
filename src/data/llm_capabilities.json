@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "last_updated": "2024-02-15",
-    "version": "1.1"
+    "last_updated": "2024-03-14",
+    "version": "1.2"
   },
   "capabilities": {
     "chat": {
@@ -17,18 +17,24 @@
             "context_awareness": {
               "description": "Maintains context across conversation turns",
               "supported_by": {
-                "Claude 3 Opus": { "status": "full", "details": "200k token context" },
+                "Claude 3.5 Sonnet": { "status": "full", "details": "200k token context, 8192 token output" },
+                "Claude 3.5 Haiku": { "status": "full", "details": "200k token context, 8192 token output" },
+                "Claude 3 Opus": { "status": "full", "details": "200k token context, 4096 token output" },
+                "Claude 3 Sonnet": { "status": "full", "details": "200k token context, 4096 token output" },
                 "GPT-4 Turbo": { "status": "full", "details": "128k token context" },
-                "Gemini Ultra": { "status": "full", "details": "128k token context" },
+                "Gemini 2.0 Flash": { "status": "full", "details": "128k token context" },
                 "Gemini 1.5 Pro": { "status": "full", "details": "1M token context" }
               }
             },
             "multilingual": {
               "description": "Support for multiple languages",
               "supported_by": {
+                "Claude 3.5 Sonnet": { "status": "full", "details": "100+ languages" },
+                "Claude 3.5 Haiku": { "status": "full", "details": "100+ languages" },
                 "Claude 3 Opus": { "status": "full", "details": "100+ languages" },
+                "Claude 3 Sonnet": { "status": "full", "details": "100+ languages" },
                 "GPT-4 Turbo": { "status": "full", "details": "All major languages" },
-                "Gemini Ultra": { "status": "full", "details": "All major languages" },
+                "Gemini 2.0 Flash": { "status": "full", "details": "All major languages" },
                 "Gemini 1.5 Pro": { "status": "full", "details": "All major languages" }
               }
             }
@@ -42,18 +48,22 @@
             "mathematical_reasoning": {
               "description": "Solving complex mathematical problems",
               "supported_by": {
-                "Claude 3 Opus": { "status": "full", "details": "Highest MMLU math" },
+                "Claude 3.5 Sonnet": { "status": "full", "details": "Advanced mathematical reasoning" },
+                "Claude 3.5 Haiku": { "status": "full", "details": "Efficient mathematical processing" },
+                "Claude 3 Opus": { "status": "full", "details": "93.7% HumanEval score" },
                 "GPT-4 Turbo": { "status": "full", "details": "90th percentile UBE" },
-                "Gemini Ultra": { "status": "full", "details": "Top MMLU scores" },
-                "Gemini 1.5 Pro": { "status": "partial", "details": "MMLU-Pro 76.4%" }
+                "Gemini 2.0 Flash": { "status": "full", "details": "Experimental capabilities" },
+                "Gemini 1.5 Pro": { "status": "full", "details": "Strong reasoning capabilities" }
               }
             },
             "logical_deduction": {
               "description": "Step-by-step logical reasoning",
               "supported_by": {
+                "Claude 3.5 Sonnet": { "status": "full", "details": "Advanced logical reasoning" },
+                "Claude 3.5 Haiku": { "status": "full", "details": "Efficient logical processing" },
                 "Claude 3 Opus": { "status": "full", "details": "93.7% HumanEval score" },
                 "GPT-4 Turbo": { "status": "full", "details": "Advanced reasoning" },
-                "Gemini Ultra": { "status": "full", "details": "91.8 MMLU score" },
+                "Gemini 2.0 Flash": { "status": "full", "details": "Next-gen reasoning" },
                 "Gemini 1.5 Pro": { "status": "full", "details": "Strong reasoning" }
               }
             }
@@ -62,10 +72,10 @@
       },
       "top_players": [
         {
-          "name": "Claude 3 Opus",
+          "name": "Claude 3.5 Sonnet",
           "company": "Anthropic",
           "iconUrl": "/assets/logos/anthropic.png",
-          "notable_features": ["93.7% HumanEval score", "200k token context", "Best-in-class reasoning", "Highest MMLU scores"]
+          "notable_features": ["200k token context", "8192 token output", "Advanced reasoning", "Apr 2024 training cutoff"]
         },
         {
           "name": "GPT-4 Turbo",
@@ -248,18 +258,23 @@
             "image_understanding": {
               "description": "Detailed analysis of image content and context",
               "supported_by": {
-                "Gemini Ultra": { "status": "full", "details": "Advanced multimodal" },
+                "Claude 3.5 Sonnet": { "status": "full", "details": "Advanced visual comprehension" },
+                "Claude 3.5 Haiku": { "status": "full", "details": "Efficient visual processing" },
+                "Claude 3 Opus": { "status": "full", "details": "Detailed visual comprehension" },
+                "Gemini 2.0 Flash": { "status": "full", "details": "Next-gen multimodal" },
                 "Gemini 1.5 Pro": { "status": "full", "details": "Advanced visual processing" },
-                "GPT-4V": { "status": "full", "details": "High-res image analysis" },
-                "Claude 3 Opus": { "status": "full", "details": "Detailed visual comprehension" }
+                "GPT-4V": { "status": "full", "details": "High-res image analysis" }
               }
             },
             "ocr_capabilities": {
               "description": "Text extraction from images",
               "supported_by": {
-                "GPT-4V": { "status": "full", "details": "Advanced OCR" },
+                "Claude 3.5 Sonnet": { "status": "full", "details": "Advanced OCR with math" },
+                "Claude 3.5 Haiku": { "status": "full", "details": "Efficient OCR" },
                 "Claude 3 Opus": { "status": "full", "details": "Mathematical notation" },
-                "Gemini 1.5 Pro": { "status": "partial", "details": "Basic text extraction" }
+                "GPT-4V": { "status": "full", "details": "Advanced OCR" },
+                "Gemini 2.0 Flash": { "status": "full", "details": "Next-gen OCR" },
+                "Gemini 1.5 Pro": { "status": "full", "details": "Advanced text extraction" }
               }
             }
           }
@@ -272,8 +287,10 @@
             "speech_recognition": {
               "description": "Converting speech to text with high accuracy",
               "supported_by": {
-                "Gemini Ultra": { "status": "full", "details": "Advanced speech recognition" },
+                "Gemini 2.0 Flash": { "status": "full", "details": "Next-gen speech recognition" },
                 "Gemini 1.5 Pro": { "status": "full", "details": "Multiple languages" },
+                "Claude 3.5 Sonnet": { "status": "none" },
+                "Claude 3.5 Haiku": { "status": "none" },
                 "GPT-4V": { "status": "none" },
                 "Claude 3 Opus": { "status": "none" }
               }
@@ -306,10 +323,10 @@
       },
       "top_players": [
         {
-          "name": "Gemini Ultra",
+          "name": "Gemini 2.0 Flash",
           "company": "Google",
           "iconUrl": "/assets/logos/gemini.png",
-          "notable_features": ["91.8 MMLU score", "Advanced multimodal", "Cross-modal reasoning"]
+          "notable_features": ["Experimental next-gen model", "Advanced multimodal", "Cross-modal reasoning", "Efficient processing"]
         },
         {
           "name": "Gemini 1.5 Pro",
