@@ -5,6 +5,13 @@ const nextConfig = {
   output: 'export',
   images: {
     unoptimized: true,
+    domains: ['www.gstatic.com', 'openai.com', 'codeium.com', 'www.all-hands.dev', 'www.cursor.com'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '**',
+      },
+    ],
   },
 }
 
