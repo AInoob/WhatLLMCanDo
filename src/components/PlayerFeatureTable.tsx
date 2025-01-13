@@ -1,10 +1,14 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import { Player } from '../types/llm';
 
 interface FeatureSupport {
   status: 'full' | 'partial' | 'none';
   details?: string;
+  benchmark_score?: number;
+  context_size?: number;
+  added_date?: string;
 }
 
 interface Feature {
@@ -33,6 +37,14 @@ const PlayerFeatureTable: React.FC<PlayerFeatureTableProps> = ({ features, playe
     }
   };
 
+  // Filter out players with no supported features
+  const supportedPlayers = players.filter(player => 
+    Object.values(features).some(feature => 
+      feature.supported_by[player.name]?.status === 'full' || 
+      feature.supported_by[player.name]?.status === 'partial'
+    )
+  );
+
   return (
     <div className="mt-6 overflow-x-auto">
       <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
@@ -41,15 +53,34 @@ const PlayerFeatureTable: React.FC<PlayerFeatureTableProps> = ({ features, playe
             <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
               Feature
             </th>
-            {players.map((player) => (
+            {supportedPlayers.map((player) => (
               <th key={player.name} className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
-                {player.name}
+                <div className="flex items-center space-x-2">
+                  {player.iconUrl && (
+                    <Image 
+                      src={player.iconUrl} 
+                      alt={`${player.name} icon`}
+                      width={16}
+                      height={16}
+                      className="rounded-full"
+                      unoptimized
+                      loader={({ src }) => src.startsWith('/') ? src : `/${src}`}
+                    />
+                  )}
+                  <span>{player.name}</span>
+                </div>
               </th>
             ))}
           </tr>
         </thead>
         <tbody className="bg-white dark:bg-gray-900 divide-y divide-gray-200 dark:divide-gray-700">
-          {Object.entries(features).map(([featureName, feature], index) => (
+          {Object.entries(features)
+            .filter(([_, feature]) => 
+              Object.values(feature.supported_by).some(support => 
+                support.status === 'full' || support.status === 'partial'
+              )
+            )
+            .map(([featureName, feature], index) => (
             <motion.tr
               key={featureName}
               initial={{ opacity: 0, y: 20 }}
@@ -60,7 +91,7 @@ const PlayerFeatureTable: React.FC<PlayerFeatureTableProps> = ({ features, playe
                 <div>{featureName.split('_').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}</div>
                 <div className="text-xs text-gray-500">{feature.description}</div>
               </td>
-              {players.map((player) => {
+              {supportedPlayers.map((player) => {
                 const support = feature.supported_by[player.name] || { status: 'none' };
                 return (
                   <td key={player.name} className="px-6 py-4 whitespace-nowrap text-sm">
@@ -69,6 +100,16 @@ const PlayerFeatureTable: React.FC<PlayerFeatureTableProps> = ({ features, playe
                     </div>
                     {support.details && (
                       <div className="text-xs text-gray-500">{support.details}</div>
+                    )}
+                    {support.benchmark_score && (
+                      <div className="text-xs text-blue-600 dark:text-blue-400">
+                        Score: {support.benchmark_score.toFixed(1)}%
+                      </div>
+                    )}
+                    {support.context_size && (
+                      <div className="text-xs text-green-600 dark:text-green-400">
+                        Context: {(support.context_size / 1000).toFixed(0)}k
+                      </div>
                     )}
                   </td>
                 );

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import { Player, Subsection } from '../types/llm';
 import MaturityScore from './MaturityScore';
 import PlayerFeatureTable from './PlayerFeatureTable';
@@ -27,7 +28,21 @@ const CapabilityCard: React.FC<CapabilityCardProps> = ({
   const [selectedSubsection, setSelectedSubsection] = useState<{name: string; data: Subsection} | null>(null);
 
   const handleSubsectionClick = (name: string, section: Subsection) => {
-    setSelectedSubsection({ name, data: section });
+    // Filter players to only show those with supported features
+    const supportedPlayers = players.filter(player => 
+      section.features ? Object.values(section.features).some(feature => 
+        feature.supported_by[player.name]?.status === 'full' || 
+        feature.supported_by[player.name]?.status === 'partial'
+      ) : true
+    );
+    
+    setSelectedSubsection({ 
+      name, 
+      data: {
+        ...section,
+        description: `${section.description}\n\nMaturity Score: ${section.score}/100 - ${section.stage.charAt(0).toUpperCase() + section.stage.slice(1)} Stage`
+      }
+    });
     setIsPopupOpen(true);
   };
   const stageColors: Record<CapabilityCardProps['stage'], string> = {
@@ -96,13 +111,52 @@ const CapabilityCard: React.FC<CapabilityCardProps> = ({
         <div className="space-y-4">
           {players.map((player, index) => (
             <div key={index} className="border-l-4 border-blue-500 pl-4">
-              <div className="font-medium">{player.name}</div>
-              <div className="text-sm text-gray-500">{player.company}</div>
+              <div className="flex items-center space-x-2">
+                {player.iconUrl && (
+                  <Image 
+                    src={player.iconUrl} 
+                    alt={`${player.name} icon`}
+                    width={24}
+                    height={24}
+                    className="rounded-full"
+                    unoptimized
+                    loader={({ src }) => src.startsWith('/') ? src : `/${src}`}
+                  />
+                )}
+                <div>
+                  <div className="font-medium">{player.name}</div>
+                  <div className="text-sm text-gray-500">{player.company}</div>
+                  {player.context_window && (
+                    <div className="text-xs text-blue-600 dark:text-blue-400">
+                      Context: {(player.context_window / 1000).toFixed(0)}k tokens
+                    </div>
+                  )}
+                </div>
+              </div>
               <ul className="mt-2 list-disc list-inside text-sm">
                 {player.notable_features.map((feature, idx) => (
                   <li key={idx} className="text-gray-600 dark:text-gray-400">{feature}</li>
                 ))}
               </ul>
+              {player.benchmark_scores && (
+                <div className="mt-2 text-xs space-y-1">
+                  {player.benchmark_scores.mmlu && (
+                    <div className="text-green-600 dark:text-green-400">
+                      MMLU: {player.benchmark_scores.mmlu.toFixed(1)}%
+                    </div>
+                  )}
+                  {player.benchmark_scores.humaneval && (
+                    <div className="text-blue-600 dark:text-blue-400">
+                      HumanEval: {player.benchmark_scores.humaneval.toFixed(1)}%
+                    </div>
+                  )}
+                  {player.benchmark_scores.swe_bench && (
+                    <div className="text-purple-600 dark:text-purple-400">
+                      SWE-bench: {player.benchmark_scores.swe_bench.toFixed(1)}%
+                    </div>
+                  )}
+                </div>
+              )}
             </div>
           ))}
         </div>
@@ -116,6 +170,15 @@ const CapabilityCard: React.FC<CapabilityCardProps> = ({
           title={selectedSubsection.name.split('_').map((word: string) => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}
           description={selectedSubsection.data.description}
           players={players}
+          features={selectedSubsection.data.features}
+          benchmarks={[
+            {
+              name: 'Maturity Score',
+              scores: {
+                [players[0].name]: `${selectedSubsection.data.score}/100`
+              }
+            }
+          ]}
         />
       )}
     </motion.div>

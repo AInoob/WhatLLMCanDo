@@ -4,6 +4,8 @@ const nextConfig = {
   swcMinify: true,
   output: 'export',
   images: {
+    loader: 'custom',
+    loaderFile: './image-loader.js',
     unoptimized: true,
   },
 }
