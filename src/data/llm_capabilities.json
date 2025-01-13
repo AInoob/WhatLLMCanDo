@@ -18,7 +18,7 @@
             "context_awareness": {
               "description": "Maintains and utilizes extensive context across conversation turns",
               "supported_by": {
-                "Claude 3 Opus": { "status": "full", "details": "200k token context, highest MMLU scores" },
+                "Claude 3.5 Sonnet": { "status": "full", "details": "200k token context, highest MMLU scores" },
                 "GPT-4o": { "status": "full", "details": "128k token context, Arena score: 1365, strong performance" },
                 "Gemini Ultra": { "status": "full", "details": "128k token context, 91.8 MMLU score" },
                 "Gemini-Exp-1206": { "status": "full", "details": "1M token context, Arena score: 1374, top performer" }
@@ -27,7 +27,7 @@
             "multilingual": {
               "description": "Comprehensive support for multiple languages with high proficiency",
               "supported_by": {
-                "Claude 3 Opus": { "status": "full", "details": "100+ languages with native-level understanding" },
+                "Claude 3.5 Sonnet": { "status": "full", "details": "100+ languages with native-level understanding" },
                 "GPT-4o": { "status": "full", "details": "All major languages, Arena score: 1365, strong translation" },
                 "Gemini Ultra": { "status": "full", "details": "All major languages, verified performance" },
                 "Gemini-Exp-1206": { "status": "full", "details": "All major languages, Arena score: 1374, top multilingual" }
@@ -52,7 +52,7 @@
             "logical_deduction": {
               "description": "Advanced step-by-step logical reasoning with benchmark verification",
               "supported_by": {
-                "Claude 3 Opus": { "status": "full", "details": "93.7% HumanEval, top MMLU reasoning" },
+                "Claude 3.5 Sonnet": { "status": "full", "details": "93.7% HumanEval, top MMLU reasoning" },
                 "GPT-4o": { "status": "full", "details": "Arena score: 1365, Advanced chain-of-thought" },
                 "Gemini Ultra": { "status": "full", "details": "91.8 MMLU, strong logical analysis" },
                 "Gemini-Exp-1206": { "status": "full", "details": "Arena score: 1374, Enhanced reasoning capabilities" }
@@ -63,7 +63,7 @@
       },
       "top_players": [
         {
-          "name": "Claude 3 Opus",
+          "name": "Claude 3.5 Sonnet",
           "company": "Anthropic",
           "iconUrl": "/assets/logos/anthropic.png",
           "notable_features": ["93.7% HumanEval score", "200k token context", "Best-in-class reasoning", "Highest MMLU scores"]
@@ -196,7 +196,7 @@
       "top_players": [
         {
           "name": "GitHub Copilot",
-          "company": "GitHub/OpenAI",
+          "company": "GitHub",
           "iconUrl": "/assets/logos/github.svg",
           "notable_features": [
             "Real-time code suggestions",
@@ -252,14 +252,14 @@
               "supported_by": {
                 "Gemini-Exp-1206": { "status": "full", "details": "Advanced visual processing, Arena score: 1374, Advanced multimodal" },
                 "GPT-4V": { "status": "full", "details": "High-res image analysis" },
-                "Claude 3 Opus": { "status": "full", "details": "Detailed visual comprehension" }
+                "Claude 3.5 Sonnet": { "status": "full", "details": "Detailed visual comprehension" }
               }
             },
             "ocr_capabilities": {
               "description": "Text extraction from images",
               "supported_by": {
                 "GPT-4V": { "status": "full", "details": "Advanced OCR" },
-                "Claude 3 Opus": { "status": "full", "details": "Mathematical notation" },
+                "Claude 3.5 Sonnet": { "status": "full", "details": "Mathematical notation" },
                 "Gemini-Exp-1206": { "status": "full", "details": "Improved text extraction, Arena score: 1374" }
               }
             }
@@ -276,7 +276,7 @@
                 "Gemini Ultra": { "status": "full", "details": "Advanced speech recognition" },
                 "Gemini-Exp-1206": { "status": "full", "details": "Multiple languages, Arena score: 1374" },
                 "GPT-4V": { "status": "none" },
-                "Claude 3 Opus": { "status": "none" }
+                "Claude 3.5 Sonnet": { "status": "none" }
               }
             }
           }
@@ -291,7 +291,7 @@
               "supported_by": {
                 "Gemini-Exp-1206": { "status": "full", "details": "Advanced cross-modal understanding, Arena score: 1374" },
                 "GPT-4V": { "status": "full", "details": "Visual reasoning" },
-                "Claude 3 Opus": { "status": "full", "details": "Diagram analysis" }
+                "Claude 3.5 Sonnet": { "status": "full", "details": "Diagram analysis" }
               }
             },
             "multimodal_generation": {
@@ -299,7 +299,7 @@
               "supported_by": {
                 "Gemini-Exp-1206": { "status": "full", "details": "Advanced text and image generation, Arena score: 1374" },
                 "GPT-4V": { "status": "partial", "details": "Text-based responses only" },
-                "Claude 3 Opus": { "status": "partial", "details": "Text-based responses only" }
+                "Claude 3.5 Sonnet": { "status": "partial", "details": "Text-based responses only" }
               }
             }
           }
@@ -319,7 +319,7 @@
           "notable_features": ["High-resolution image analysis", "Visual reasoning with GPT-4 Turbo", "Advanced OCR capabilities"]
         },
         {
-          "name": "Claude 3 Opus",
+          "name": "Claude 3.5 Sonnet",
           "company": "Anthropic",
           "iconUrl": "/assets/logos/anthropic.png",
           "notable_features": ["200k token context", "93.7% HumanEval score", "Advanced visual analysis", "Mathematical diagram comprehension"]
