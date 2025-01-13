@@ -18,36 +18,16 @@
               "description": "Maintains context across conversation turns",
               "supported_by": {
                 "Claude 3 Opus": { "status": "full", "details": "200k token context" },
-                "Claude 3.5 Sonnet": { "status": "full", "details": "128k token context" },
-                "Claude 3 Sonnet": { "status": "full", "details": "128k token context" },
-                "Claude 3 Haiku": { "status": "full", "details": "32k token context" },
                 "GPT-4 Turbo": { "status": "full", "details": "128k token context" },
-                "GPT-4o": { "status": "full", "details": "128k token context" },
-                "GPT-o1": { "status": "full", "details": "128k token context" },
-                "GPT-4V": { "status": "full", "details": "128k token context" },
-                "GPT-3.5": { "status": "partial", "details": "16k token context" },
-                "Gemini Ultra": { "status": "full", "details": "128k token context" },
-                "Gemini 1.5 Pro": { "status": "full", "details": "128k token context" },
-                "Gemini Pro": { "status": "partial", "details": "32k token context" },
-                "Gemini Exp-1206": { "status": "full", "details": "128k token context" }
+                "Gemini 1.5 Pro": { "status": "full", "details": "1M token context" }
               }
             },
             "multilingual": {
               "description": "Support for multiple languages",
               "supported_by": {
                 "Claude 3 Opus": { "status": "full", "details": "100+ languages" },
-                "Claude 3.5 Sonnet": { "status": "full", "details": "100+ languages" },
-                "Claude 3 Sonnet": { "status": "full", "details": "100+ languages" },
-                "Claude 3 Haiku": { "status": "full", "details": "Major languages" },
                 "GPT-4 Turbo": { "status": "full", "details": "All major languages" },
-                "GPT-4o": { "status": "full", "details": "All major languages" },
-                "GPT-o1": { "status": "full", "details": "All major languages" },
-                "GPT-4V": { "status": "full", "details": "All major languages" },
-                "GPT-3.5": { "status": "full", "details": "All major languages" },
-                "Gemini Ultra": { "status": "full", "details": "All major languages" },
-                "Gemini 1.5 Pro": { "status": "full", "details": "All major languages" },
-                "Gemini Pro": { "status": "full", "details": "All major languages" },
-                "Gemini Exp-1206": { "status": "full", "details": "All major languages" }
+                "Gemini 1.5 Pro": { "status": "full", "details": "All major languages" }
               }
             }
           }
@@ -61,25 +41,15 @@
               "description": "Solving complex mathematical problems",
               "supported_by": {
                 "Claude 3 Opus": { "status": "full", "details": "Highest MMLU math" },
-                "Claude 3.5 Sonnet": { "status": "full", "details": "44.67% SWE-bench" },
-                "Claude 3 Sonnet": { "status": "full", "details": "Strong math performance" },
                 "GPT-4 Turbo": { "status": "full", "details": "90th percentile UBE" },
-                "GPT-4o": { "status": "full", "details": "Enhanced performance" },
-                "GPT-o1": { "status": "full", "details": "Latest optimizations" },
-                "Gemini Ultra": { "status": "full", "details": "Top MMLU scores" },
-                "Gemini 1.5 Pro": { "status": "partial", "details": "GPQA 62.1%" }
+                "Gemini 1.5 Pro": { "status": "full", "details": "GPQA 62.1%" }
               }
             },
             "logical_deduction": {
               "description": "Step-by-step logical reasoning",
               "supported_by": {
                 "Claude 3 Opus": { "status": "full", "details": "Best-in-class reasoning" },
-                "Claude 3.5 Sonnet": { "status": "full", "details": "Enhanced reasoning" },
-                "Claude 3 Sonnet": { "status": "full", "details": "Strong reasoning" },
                 "GPT-4 Turbo": { "status": "full", "details": "Advanced reasoning" },
-                "GPT-4o": { "status": "full", "details": "Optimized reasoning" },
-                "GPT-o1": { "status": "full", "details": "Latest reasoning capabilities" },
-                "Gemini Ultra": { "status": "full", "details": "Advanced reasoning" },
                 "Gemini 1.5 Pro": { "status": "full", "details": "Strong reasoning" }
               }
             }
@@ -91,79 +61,19 @@
           "name": "Claude 3 Opus",
           "company": "Anthropic",
           "iconUrl": "/assets/logos/anthropic.png",
-          "notable_features": ["93.7% HumanEval score", "200k token context window", "Best-in-class reasoning"]
-        },
-        {
-          "name": "Claude 3.5 Sonnet",
-          "company": "Anthropic",
-          "iconUrl": "/assets/logos/anthropic.png",
-          "notable_features": ["44.67% SWE-bench score", "128k token context", "Enhanced code capabilities"]
-        },
-        {
-          "name": "Claude 3 Sonnet",
-          "company": "Anthropic",
-          "iconUrl": "/assets/logos/anthropic.png",
-          "notable_features": ["90.2% HumanEval score", "128k token context", "Balanced performance"]
-        },
-        {
-          "name": "Claude 3 Haiku",
-          "company": "Anthropic",
-          "iconUrl": "/assets/logos/anthropic.png",
-          "notable_features": ["Fast inference", "Efficient processing", "Cost-effective"]
+          "notable_features": ["93.7% HumanEval score", "200k token context", "Best-in-class reasoning", "Highest MMLU scores"]
         },
         {
           "name": "GPT-4 Turbo",
           "company": "OpenAI",
           "iconUrl": "/assets/logos/openai.svg",
-          "notable_features": ["Strong multimodal capabilities", "Advanced reasoning", "128k context window"]
-        },
-        {
-          "name": "GPT-4o",
-          "company": "OpenAI",
-          "iconUrl": "/assets/logos/openai.svg",
-          "notable_features": ["Optimized for code tasks", "Enhanced reasoning", "SWE-bench optimized"]
-        },
-        {
-          "name": "GPT-o1",
-          "company": "OpenAI",
-          "iconUrl": "/assets/logos/openai.svg",
-          "notable_features": ["Latest model variant", "Advanced optimizations", "Improved capabilities"]
-        },
-        {
-          "name": "GPT-4V",
-          "company": "OpenAI",
-          "iconUrl": "/assets/logos/openai.svg",
-          "notable_features": ["Advanced vision capabilities", "High-res image analysis", "Detailed visual reasoning"]
-        },
-        {
-          "name": "GPT-3.5",
-          "company": "OpenAI",
-          "iconUrl": "/assets/logos/openai.svg",
-          "notable_features": ["Fast response time", "Cost-effective", "Wide API support"]
-        },
-        {
-          "name": "Gemini Ultra",
-          "company": "Google",
-          "iconUrl": "/assets/logos/gemini.png",
-          "notable_features": ["Top MMLU scores", "Advanced reasoning", "Strong multimodal capabilities"]
+          "notable_features": ["Strong multimodal capabilities", "Advanced reasoning", "128k context window", "90th percentile UBE"]
         },
         {
           "name": "Gemini 1.5 Pro",
           "company": "Google",
           "iconUrl": "/assets/logos/gemini.png",
-          "notable_features": ["128k context window", "Efficient processing", "Strong coding performance"]
-        },
-        {
-          "name": "Gemini Pro",
-          "company": "Google",
-          "iconUrl": "/assets/logos/gemini.png",
-          "notable_features": ["Balanced performance", "Cost-effective", "Wide API support"]
-        },
-        {
-          "name": "Gemini Exp-1206",
-          "company": "Google",
-          "iconUrl": "/assets/logos/gemini.png",
-          "notable_features": ["Experimental features", "Latest improvements", "Research focus"]
+          "notable_features": ["1M token context", "Strong performance", "Video understanding", "Efficient processing"]
         }
       ]
     },
@@ -183,7 +93,7 @@
                 "GitHub Copilot": { "status": "full", "details": "40+ languages" },
                 "Cursor": { "status": "full", "details": "All major languages" },
                 "Windsurf": { "status": "full", "details": "70+ languages" },
-                "all-hands.dev": { "status": "partial", "details": "Major languages" }
+                "All Hands": { "status": "partial", "details": "Major languages" }
               }
             },
             "context_aware": {
@@ -192,7 +102,7 @@
                 "GitHub Copilot": { "status": "full", "details": "Full repository context" },
                 "Cursor": { "status": "full", "details": "Codebase understanding" },
                 "Windsurf": { "status": "full", "details": "Full repo context" },
-                "all-hands.dev": { "status": "full", "details": "Team context aware" }
+                "All Hands": { "status": "full", "details": "Team context aware" }
               }
             }
           }
@@ -208,7 +118,7 @@
                 "GitHub Copilot": { "status": "partial", "details": "Basic refactoring" },
                 "Cursor": { "status": "full", "details": "AI-powered edits" },
                 "Windsurf": { "status": "full", "details": "Smart transformations" },
-                "all-hands.dev": { "status": "partial", "details": "Collaborative improvements" }
+                "All Hands": { "status": "partial", "details": "Collaborative improvements" }
               }
             },
             "optimization": {
@@ -217,7 +127,7 @@
                 "GitHub Copilot": { "status": "partial" },
                 "Cursor": { "status": "full", "details": "Context-aware optimization" },
                 "Windsurf": { "status": "full", "details": "Advanced optimization" },
-                "all-hands.dev": { "status": "partial" }
+                "All Hands": { "status": "partial" }
               }
             }
           }
@@ -233,7 +143,7 @@
                 "GitHub Copilot": { "status": "partial", "details": "Through Copilot Chat" },
                 "Cursor": { "status": "partial", "details": "Basic review" },
                 "Windsurf": { "status": "full", "details": "Comprehensive review" },
-                "all-hands.dev": { "status": "full", "details": "Team-focused review" }
+                "All Hands": { "status": "full", "details": "Team-focused review" }
               }
             },
             "security_analysis": {
@@ -241,7 +151,7 @@
               "supported_by": {
                 "GitHub Copilot": { "status": "full", "details": "Security features" },
                 "Windsurf": { "status": "partial", "details": "Basic security checks" },
-                "all-hands.dev": { "status": "partial", "details": "Basic security review" }
+                "All Hands": { "status": "partial", "details": "Basic security review" }
               }
             }
           }
@@ -257,61 +167,9 @@
                 "GitHub Copilot": { "status": "partial", "details": "Basic automation" },
                 "Cursor": { "status": "partial", "details": "Limited automation" },
                 "Windsurf": { "status": "partial", "details": "Basic automation" },
-                "all-hands.dev": { "status": "partial", "details": "Limited automation" }
+                "All Hands": { "status": "partial", "details": "Limited automation" }
               }
             }
-          }
-        }
-      },
-      "tool_comparison": {
-        "github_copilot": {
-          "name": "GitHub Copilot",
-          "company": "GitHub/OpenAI",
-          "capabilities": {
-            "code_completion": "Advanced real-time suggestions, multi-language support",
-            "code_modification": "Basic refactoring suggestions",
-            "pr_review": "Limited through GitHub Copilot Chat",
-            "agentic_programming": "Not available"
-          }
-        },
-        "cursor": {
-          "name": "Cursor",
-          "company": "Cursor",
-          "capabilities": {
-            "code_completion": "Context-aware completions",
-            "code_modification": "AI-powered edits and refactoring",
-            "pr_review": "Basic code review capabilities",
-            "agentic_programming": "Limited automation features"
-          }
-        },
-        "windsurf": {
-          "name": "Windsurf",
-          "company": "Windsurf AI",
-          "capabilities": {
-            "code_completion": "Context-aware suggestions",
-            "code_modification": "Smart code transformations",
-            "pr_review": "Automated code review",
-            "agentic_programming": "Basic task automation"
-          }
-        },
-        "devin": {
-          "name": "Devin",
-          "company": "Cognition Labs",
-          "capabilities": {
-            "code_completion": "Advanced completions with reasoning",
-            "code_modification": "Intelligent code modifications",
-            "pr_review": "Comprehensive PR analysis",
-            "agentic_programming": "Advanced autonomous development"
-          }
-        },
-        "all_hands": {
-          "name": "all-hands.dev",
-          "company": "All Hands",
-          "capabilities": {
-            "code_completion": "Team-aware code suggestions",
-            "code_modification": "Collaborative code improvements",
-            "pr_review": "Team-focused code review",
-            "agentic_programming": "Limited automation features"
           }
         }
       },
@@ -347,7 +205,7 @@
           ]
         },
         {
-          "name": "all-hands.dev",
+          "name": "All Hands",
           "company": "All Hands",
           "iconUrl": "/assets/logos/all_hands.svg",
           "notable_features": [
@@ -373,14 +231,14 @@
               "supported_by": {
                 "Gemini 1.5 Pro": { "status": "full", "details": "Advanced visual processing" },
                 "GPT-4V": { "status": "full", "details": "High-res image analysis" },
-                "Claude 3 Vision": { "status": "full", "details": "Detailed visual comprehension" }
+                "Claude 3 Opus": { "status": "full", "details": "Detailed visual comprehension" }
               }
             },
             "ocr_capabilities": {
               "description": "Text extraction from images",
               "supported_by": {
                 "GPT-4V": { "status": "full", "details": "Advanced OCR" },
-                "Claude 3 Vision": { "status": "full", "details": "Mathematical notation" },
+                "Claude 3 Opus": { "status": "full", "details": "Mathematical notation" },
                 "Gemini 1.5 Pro": { "status": "partial", "details": "Basic text extraction" }
               }
             }
@@ -396,7 +254,7 @@
               "supported_by": {
                 "Gemini 1.5 Pro": { "status": "full", "details": "Multiple languages" },
                 "GPT-4V": { "status": "none" },
-                "Claude 3 Vision": { "status": "none" }
+                "Claude 3 Opus": { "status": "none" }
               }
             }
           }
@@ -411,7 +269,7 @@
               "supported_by": {
                 "Gemini 1.5 Pro": { "status": "full", "details": "Cross-modal understanding" },
                 "GPT-4V": { "status": "full", "details": "Visual reasoning" },
-                "Claude 3 Vision": { "status": "full", "details": "Diagram analysis" }
+                "Claude 3 Opus": { "status": "full", "details": "Diagram analysis" }
               }
             },
             "multimodal_generation": {
@@ -419,7 +277,7 @@
               "supported_by": {
                 "Gemini 1.5 Pro": { "status": "full", "details": "Text and image generation" },
                 "GPT-4V": { "status": "partial", "details": "Text-based responses only" },
-                "Claude 3 Vision": { "status": "partial", "details": "Text-based responses only" }
+                "Claude 3 Opus": { "status": "partial", "details": "Text-based responses only" }
               }
             }
           }
@@ -439,7 +297,7 @@
           "notable_features": ["High-resolution image analysis", "Detailed visual reasoning", "OCR capabilities"]
         },
         {
-          "name": "Claude 3 Vision",
+          "name": "Claude 3 Opus",
           "company": "Anthropic",
           "iconUrl": "/assets/logos/anthropic.png",
           "notable_features": ["Advanced image understanding", "Detailed visual analysis", "Mathematical diagram comprehension"]
