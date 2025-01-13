@@ -1,31 +1,7 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; base-uri 'self'; connect-src 'self'; form-action 'self'; img-src 'self' data:; script-src 'self'; style-src 'unsafe-inline'">
-    <meta content="origin" name="referrer">
-    <title>Page not found &middot; GitHub</title>
-    <style type="text/css" media="screen">
-      body {
-        background-color: #f1f1f1;
-        margin: 0;
-      }
-      body,
-      input,
-      button {
-        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-      }
-      .container { margin: 30px auto 40px auto; width: 800px; text-align: center; }
-
-      a { color: #4183c4; text-decoration: none; font-weight: bold; }
-      a:hover { text-decoration: underline; }
-
-      h3 { color: #666; }
-      ul { list-style: none; padding: 25px 0; }
-      li {
-        display: inline;
-        margin: 10px 50px 10px 0px;
-      }
+<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100">
+  <circle cx="50" cy="50" r="45" fill="#24292E"/>
+  <path d="M50 25c-13.8 0-25 11.2-25 25 0 11 7.2 20.4 17.1 23.7 1.3.2 1.7-.5 1.7-1.2v-4.2c-7 1.5-8.4-3.4-8.4-3.4-1.1-2.9-2.8-3.7-2.8-3.7-2.3-1.6.2-1.6.2-1.6 2.5.2 3.8 2.6 3.8 2.6 2.2 3.8 5.8 2.7 7.2 2.1.2-1.6.9-2.7 1.6-3.3-5.6-.6-11.4-2.8-11.4-12.4 0-2.7 1-5 2.6-6.7-.3-.6-1.1-3.2.2-6.7 0 0 2.1-.7 6.9 2.6 2-.6 4.1-.8 6.2-.8 2.1 0 4.2.3 6.2.8 4.8-3.2 6.9-2.6 6.9-2.6 1.4 3.5.5 6.1.2 6.7 1.6 1.8 2.6 4 2.6 6.7 0 9.6-5.8 11.8-11.4 12.4.9.8 1.7 2.3 1.7 4.7v7c0 .7.4 1.4 1.7 1.2C67.8 70.4 75 61 75 50c0-13.8-11.2-25-25-25z" fill="white"/>
+</svg>
       input[type=text],
       input[type=password] {
         font-size: 13px;
