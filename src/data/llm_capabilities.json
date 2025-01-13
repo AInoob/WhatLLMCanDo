@@ -7,10 +7,10 @@
     "chat": {
       "score": 90,
       "stage": "mature",
-      "description": "Advanced conversational abilities with strong reasoning and multilingual support",  // Based on Google Sheets MMLU scores
+      "description": "Advanced conversational abilities with strong reasoning and multilingual support (Based on Google Sheets MMLU scores)",
       "subsections": {
         "general_conversation": {
-          "score": 90,  // Based on context window sizes and MMLU scores
+          "score": 90,
           "stage": "mature",
           "description": "Natural dialogue with high context awareness and multilingual capabilities",
           "features": {
@@ -35,7 +35,7 @@
           }
         },
         "reasoning_and_problem_solving": {
-          "score": 85,  // Based on GPQA scores
+          "score": 85,
           "stage": "mature",
           "description": "Complex reasoning, mathematical problem-solving, and logical deduction",
           "features": {
@@ -84,10 +84,10 @@
     "coding": {
       "score": 80,
       "stage": "mature",
-      "description": "Advanced code generation and analysis with specialized tools and models",  // Based on SWE-bench data
+      "description": "Advanced code generation and analysis with specialized tools and models (Based on SWE-bench data)",
       "subsections": {
         "code_completion": {
-          "score": 80,  // Based on SWE-bench data
+          "score": 80,
           "stage": "mature",
           "description": "Real-time code suggestions with multi-language support and context awareness",
           "features": {
@@ -121,7 +121,7 @@
           }
         },
         "code_modification": {
-          "score": 75,  // Based on code modification benchmarks
+          "score": 75,
           "stage": "emerging",
           "description": "Code refactoring and optimization with AI-powered improvements",
           "features": {
@@ -145,7 +145,7 @@
           }
         },
         "pr_review": {
-          "score": 70,  // Based on PR review capabilities
+          "score": 70,
           "stage": "emerging",
           "description": "Automated code review and analysis of pull requests",
           "features": {
@@ -169,7 +169,7 @@
           }
         },
         "agentic_programming": {
-          "score": 65,  // Based on autonomous development benchmarks
+          "score": 65,
           "stage": "early",
           "description": "Autonomous development and task planning capabilities",
           "features": {
