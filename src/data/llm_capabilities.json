@@ -65,7 +65,7 @@
         {
           "name": "Claude 3 Opus",
           "company": "Anthropic",
-          "iconUrl": "/assets/logos/anthropic.svg",
+          "iconUrl": "/assets/logos/anthropic.png",
           "notable_features": ["93.7% HumanEval score", "200k token context", "Best-in-class reasoning", "Highest MMLU scores"]
         },
         {
@@ -309,7 +309,7 @@
         {
           "name": "Gemini-Exp-1206",
           "company": "Google",
-          "iconUrl": "/assets/logos/gemini.svg",
+          "iconUrl": "/assets/logos/gemini.png",
           "notable_features": ["Arena score: 1374", "1M token context", "91.8 MMLU score", "Advanced multimodal", "Advanced visual processing", "Top multimodal performer"]
         },
         {
@@ -321,7 +321,7 @@
         {
           "name": "Claude 3 Opus",
           "company": "Anthropic",
-          "iconUrl": "/assets/logos/anthropic.svg",
+          "iconUrl": "/assets/logos/anthropic.png",
           "notable_features": ["200k token context", "93.7% HumanEval score", "Advanced visual analysis", "Mathematical diagram comprehension"]
         }
       ]
