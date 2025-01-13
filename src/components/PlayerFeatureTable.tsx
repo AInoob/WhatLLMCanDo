@@ -63,6 +63,8 @@ const PlayerFeatureTable: React.FC<PlayerFeatureTableProps> = ({ features, playe
                       width={16}
                       height={16}
                       className="rounded-full"
+                      loader={({ src }) => src}
+                      unoptimized
                     />
                   )}
                   <span>{player.name}</span>

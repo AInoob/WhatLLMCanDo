@@ -65,6 +65,8 @@ const SubcategoryPopup: React.FC<SubcategoryPopupProps> = ({
                         width={32}
                         height={32}
                         className="mb-2 rounded-full"
+                        loader={({ src }) => src}
+                        unoptimized
                       />
                     )}
                     <div className="font-medium">{player.name}</div>

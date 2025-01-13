@@ -4,14 +4,9 @@ const nextConfig = {
   swcMinify: true,
   output: 'export',
   images: {
+    loader: 'custom',
+    loaderFile: './image-loader.js',
     unoptimized: true,
-    domains: ['www.gstatic.com', 'openai.com', 'codeium.com', 'www.all-hands.dev', 'www.cursor.com'],
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: '**',
-      },
-    ],
   },
 }
 
