@@ -12,6 +12,9 @@ export interface MaturityData {
 export interface FeatureSupport {
   status: 'full' | 'partial' | 'none';
   details?: string;
+  benchmark_score?: number;
+  context_size?: number;
+  added_date?: string;
 }
 
 export interface Feature {
@@ -21,11 +24,20 @@ export interface Feature {
   };
 }
 
+export interface BenchmarkScores {
+  mmlu?: number;
+  humaneval?: number;
+  swe_bench?: number;
+  gpqa?: number;
+}
+
 export interface Player {
   name: string;
   company: string;
   notable_features: string[];
   iconUrl?: string;
+  context_window?: number;
+  benchmark_scores?: BenchmarkScores;
   feature_support?: {
     [feature: string]: FeatureSupport;
   };

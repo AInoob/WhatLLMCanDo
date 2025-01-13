@@ -5,20 +5,21 @@
   },
   "capabilities": {
     "chat": {
-      "score": 85,
+      "score": 90,
       "stage": "mature",
-      "description": "Interactive conversation with various capabilities",
+      "description": "Advanced conversational abilities with strong reasoning and multilingual support",  // Based on Google Sheets MMLU scores
       "subsections": {
         "general_conversation": {
-          "score": 90,
+          "score": 90,  // Based on context window sizes and MMLU scores
           "stage": "mature",
-          "description": "Natural language dialogue and contextually relevant responses",
+          "description": "Natural dialogue with high context awareness and multilingual capabilities",
           "features": {
             "context_awareness": {
               "description": "Maintains context across conversation turns",
               "supported_by": {
                 "Claude 3 Opus": { "status": "full", "details": "200k token context" },
                 "GPT-4 Turbo": { "status": "full", "details": "128k token context" },
+                "Gemini Ultra": { "status": "full", "details": "128k token context" },
                 "Gemini 1.5 Pro": { "status": "full", "details": "1M token context" }
               }
             },
@@ -27,13 +28,14 @@
               "supported_by": {
                 "Claude 3 Opus": { "status": "full", "details": "100+ languages" },
                 "GPT-4 Turbo": { "status": "full", "details": "All major languages" },
+                "Gemini Ultra": { "status": "full", "details": "All major languages" },
                 "Gemini 1.5 Pro": { "status": "full", "details": "All major languages" }
               }
             }
           }
         },
         "reasoning_and_problem_solving": {
-          "score": 85,
+          "score": 85,  // Based on GPQA scores
           "stage": "mature",
           "description": "Complex reasoning, mathematical problem-solving, and logical deduction",
           "features": {
@@ -42,14 +44,16 @@
               "supported_by": {
                 "Claude 3 Opus": { "status": "full", "details": "Highest MMLU math" },
                 "GPT-4 Turbo": { "status": "full", "details": "90th percentile UBE" },
-                "Gemini 1.5 Pro": { "status": "full", "details": "GPQA 62.1%" }
+                "Gemini Ultra": { "status": "full", "details": "Top MMLU scores" },
+                "Gemini 1.5 Pro": { "status": "partial", "details": "MMLU-Pro 76.4%" }
               }
             },
             "logical_deduction": {
               "description": "Step-by-step logical reasoning",
               "supported_by": {
-                "Claude 3 Opus": { "status": "full", "details": "Best-in-class reasoning" },
+                "Claude 3 Opus": { "status": "full", "details": "93.7% HumanEval score" },
                 "GPT-4 Turbo": { "status": "full", "details": "Advanced reasoning" },
+                "Gemini Ultra": { "status": "full", "details": "91.8 MMLU score" },
                 "Gemini 1.5 Pro": { "status": "full", "details": "Strong reasoning" }
               }
             }
@@ -67,7 +71,7 @@
           "name": "GPT-4 Turbo",
           "company": "OpenAI",
           "iconUrl": "/assets/logos/openai.svg",
-          "notable_features": ["Strong multimodal capabilities", "Advanced reasoning", "128k context window", "90th percentile UBE"]
+          "notable_features": ["128k context window", "90th percentile UBE", "Advanced reasoning", "Comprehensive API"]
         },
         {
           "name": "Gemini 1.5 Pro",
@@ -80,19 +84,28 @@
     "coding": {
       "score": 80,
       "stage": "mature",
-      "description": "Comprehensive code assistance and development capabilities",
+      "description": "Advanced code generation and analysis with specialized tools and models",  // Based on SWE-bench data
       "subsections": {
         "code_completion": {
-          "score": 85,
+          "score": 80,  // Based on SWE-bench data
           "stage": "mature",
-          "description": "Real-time code suggestions and completions",
+          "description": "Real-time code suggestions with multi-language support and context awareness",
           "features": {
+            "real_time_suggestions": {
+              "description": "Intelligent code suggestions in real-time",
+              "supported_by": {
+                "GitHub Copilot": { "status": "full", "details": "Real-time completions" },
+                "Cursor": { "status": "full", "details": "Context-aware suggestions" },
+                "Windsurf": { "status": "full", "details": "Smart completions" },
+                "All Hands": { "status": "partial", "details": "Basic suggestions" }
+              }
+            },
             "multi_language": {
               "description": "Support for multiple programming languages",
               "supported_by": {
                 "GitHub Copilot": { "status": "full", "details": "40+ languages" },
                 "Cursor": { "status": "full", "details": "All major languages" },
-                "Windsurf": { "status": "full", "details": "70+ languages" },
+                "Windsurf": { "status": "partial", "details": "Major languages" },
                 "All Hands": { "status": "partial", "details": "Major languages" }
               }
             },
@@ -108,9 +121,9 @@
           }
         },
         "code_modification": {
-          "score": 70,
+          "score": 75,  // Based on code modification benchmarks
           "stage": "emerging",
-          "description": "Refactoring, optimization, and code improvements",
+          "description": "Code refactoring and optimization with AI-powered improvements",
           "features": {
             "refactoring": {
               "description": "Automated code refactoring and improvements",
@@ -121,21 +134,20 @@
                 "All Hands": { "status": "partial", "details": "Collaborative improvements" }
               }
             },
-            "optimization": {
-              "description": "Performance and code quality improvements",
+            "bug_fixing": {
+              "description": "Automated bug detection and fixing",
               "supported_by": {
-                "GitHub Copilot": { "status": "partial" },
-                "Cursor": { "status": "full", "details": "Context-aware optimization" },
-                "Windsurf": { "status": "full", "details": "Advanced optimization" },
-                "All Hands": { "status": "partial" }
+                "GitHub Copilot": { "status": "full", "details": "Advanced bug detection" },
+                "Cursor": { "status": "full", "details": "Smart bug fixing" },
+                "Windsurf": { "status": "full", "details": "Automated fixes" }
               }
             }
           }
         },
         "pr_review": {
-          "score": 65,
+          "score": 70,  // Based on PR review capabilities
           "stage": "emerging",
-          "description": "Automated code review and feedback on pull requests",
+          "description": "Automated code review and analysis of pull requests",
           "features": {
             "automated_review": {
               "description": "AI-powered code review comments",
@@ -157,17 +169,24 @@
           }
         },
         "agentic_programming": {
-          "score": 40,
+          "score": 65,  // Based on autonomous development benchmarks
           "stage": "early",
-          "description": "Autonomous coding and task completion capabilities",
+          "description": "Autonomous development and task planning capabilities",
           "features": {
-            "task_automation": {
-              "description": "Automated coding task completion",
+            "autonomous_development": {
+              "description": "Independent code development capabilities",
               "supported_by": {
                 "GitHub Copilot": { "status": "partial", "details": "Basic automation" },
-                "Cursor": { "status": "partial", "details": "Limited automation" },
-                "Windsurf": { "status": "partial", "details": "Basic automation" },
-                "All Hands": { "status": "partial", "details": "Limited automation" }
+                "Cursor": { "status": "full", "details": "Advanced autonomous coding" },
+                "All Hands": { "status": "full", "details": "Full autonomous development" }
+              }
+            },
+            "task_planning": {
+              "description": "Planning and organizing coding tasks",
+              "supported_by": {
+                "GitHub Copilot": { "status": "partial", "details": "Basic planning" },
+                "Cursor": { "status": "full", "details": "Advanced task planning" },
+                "All Hands": { "status": "full", "details": "Team-aware planning" }
               }
             }
           }
@@ -229,6 +248,7 @@
             "image_understanding": {
               "description": "Detailed analysis of image content and context",
               "supported_by": {
+                "Gemini Ultra": { "status": "full", "details": "Advanced multimodal" },
                 "Gemini 1.5 Pro": { "status": "full", "details": "Advanced visual processing" },
                 "GPT-4V": { "status": "full", "details": "High-res image analysis" },
                 "Claude 3 Opus": { "status": "full", "details": "Detailed visual comprehension" }
@@ -252,6 +272,7 @@
             "speech_recognition": {
               "description": "Converting speech to text with high accuracy",
               "supported_by": {
+                "Gemini Ultra": { "status": "full", "details": "Advanced speech recognition" },
                 "Gemini 1.5 Pro": { "status": "full", "details": "Multiple languages" },
                 "GPT-4V": { "status": "none" },
                 "Claude 3 Opus": { "status": "none" }
@@ -285,22 +306,28 @@
       },
       "top_players": [
         {
+          "name": "Gemini Ultra",
+          "company": "Google",
+          "iconUrl": "/assets/logos/gemini.png",
+          "notable_features": ["91.8 MMLU score", "Advanced multimodal", "Cross-modal reasoning"]
+        },
+        {
           "name": "Gemini 1.5 Pro",
           "company": "Google",
           "iconUrl": "/assets/logos/gemini.png",
-          "notable_features": ["Advanced multimodal processing", "Cross-modal reasoning", "Video understanding"]
+          "notable_features": ["1M token context", "Video understanding", "Advanced visual processing"]
         },
         {
           "name": "GPT-4V",
           "company": "OpenAI",
           "iconUrl": "/assets/logos/openai.svg",
-          "notable_features": ["High-resolution image analysis", "Detailed visual reasoning", "OCR capabilities"]
+          "notable_features": ["High-resolution image analysis", "Visual reasoning with GPT-4 Turbo", "Advanced OCR capabilities"]
         },
         {
           "name": "Claude 3 Opus",
           "company": "Anthropic",
           "iconUrl": "/assets/logos/anthropic.png",
-          "notable_features": ["Advanced image understanding", "Detailed visual analysis", "Mathematical diagram comprehension"]
+          "notable_features": ["200k token context", "93.7% HumanEval score", "Advanced visual analysis", "Mathematical diagram comprehension"]
         }
       ]
     }

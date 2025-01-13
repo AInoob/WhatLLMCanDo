@@ -124,6 +124,11 @@ const CapabilityCard: React.FC<CapabilityCardProps> = ({
                 <div>
                   <div className="font-medium">{player.name}</div>
                   <div className="text-sm text-gray-500">{player.company}</div>
+                  {player.context_window && (
+                    <div className="text-xs text-blue-600 dark:text-blue-400">
+                      Context: {(player.context_window / 1000).toFixed(0)}k tokens
+                    </div>
+                  )}
                 </div>
               </div>
               <ul className="mt-2 list-disc list-inside text-sm">
@@ -131,6 +136,25 @@ const CapabilityCard: React.FC<CapabilityCardProps> = ({
                   <li key={idx} className="text-gray-600 dark:text-gray-400">{feature}</li>
                 ))}
               </ul>
+              {player.benchmark_scores && (
+                <div className="mt-2 text-xs space-y-1">
+                  {player.benchmark_scores.mmlu && (
+                    <div className="text-green-600 dark:text-green-400">
+                      MMLU: {player.benchmark_scores.mmlu.toFixed(1)}%
+                    </div>
+                  )}
+                  {player.benchmark_scores.humaneval && (
+                    <div className="text-blue-600 dark:text-blue-400">
+                      HumanEval: {player.benchmark_scores.humaneval.toFixed(1)}%
+                    </div>
+                  )}
+                  {player.benchmark_scores.swe_bench && (
+                    <div className="text-purple-600 dark:text-purple-400">
+                      SWE-bench: {player.benchmark_scores.swe_bench.toFixed(1)}%
+                    </div>
+                  )}
+                </div>
+              )}
             </div>
           ))}
         </div>

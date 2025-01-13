@@ -69,11 +69,35 @@ const SubcategoryPopup: React.FC<SubcategoryPopupProps> = ({
                     )}
                     <div className="font-medium">{player.name}</div>
                     <div className="text-sm text-gray-500">{player.company}</div>
+                    {player.context_window && (
+                      <div className="text-xs text-blue-600 dark:text-blue-400 mt-1">
+                        Context Window: {(player.context_window / 1000).toFixed(0)}k tokens
+                      </div>
+                    )}
                     <ul className="mt-2 list-disc list-inside text-sm">
                       {player.notable_features.map((feature, idx) => (
                         <li key={idx} className="text-gray-600 dark:text-gray-400">{feature}</li>
                       ))}
                     </ul>
+                    {player.benchmark_scores && (
+                      <div className="mt-2 text-xs space-y-1">
+                        {player.benchmark_scores.mmlu && (
+                          <div className="text-green-600 dark:text-green-400">
+                            MMLU Score: {player.benchmark_scores.mmlu.toFixed(1)}%
+                          </div>
+                        )}
+                        {player.benchmark_scores.humaneval && (
+                          <div className="text-blue-600 dark:text-blue-400">
+                            HumanEval Score: {player.benchmark_scores.humaneval.toFixed(1)}%
+                          </div>
+                        )}
+                        {player.benchmark_scores.swe_bench && (
+                          <div className="text-purple-600 dark:text-purple-400">
+                            SWE-bench Score: {player.benchmark_scores.swe_bench.toFixed(1)}%
+                          </div>
+                        )}
+                      </div>
+                    )}
                   </div>
                 ))}
               </div>

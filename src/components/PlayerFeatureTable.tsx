@@ -6,6 +6,9 @@ import { Player } from '../types/llm';
 interface FeatureSupport {
   status: 'full' | 'partial' | 'none';
   details?: string;
+  benchmark_score?: number;
+  context_size?: number;
+  added_date?: string;
 }
 
 interface Feature {
@@ -95,6 +98,16 @@ const PlayerFeatureTable: React.FC<PlayerFeatureTableProps> = ({ features, playe
                     </div>
                     {support.details && (
                       <div className="text-xs text-gray-500">{support.details}</div>
+                    )}
+                    {support.benchmark_score && (
+                      <div className="text-xs text-blue-600 dark:text-blue-400">
+                        Score: {support.benchmark_score.toFixed(1)}%
+                      </div>
+                    )}
+                    {support.context_size && (
+                      <div className="text-xs text-green-600 dark:text-green-400">
+                        Context: {(support.context_size / 1000).toFixed(0)}k
+                      </div>
                     )}
                   </td>
                 );
