@@ -3,35 +3,40 @@ import requests
 from urllib.parse import urlparse
 
 def download_image(url, filename):
-    response = requests.get(url)
-    if response.status_code == 200:
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
+    }
+    try:
+        response = requests.get(url, headers=headers, timeout=10)
+        response.raise_for_status()
         with open(filename, 'wb') as f:
             f.write(response.content)
         print(f"Downloaded {filename}")
-    else:
-        print(f"Failed to download {url}")
+    except Exception as e:
+        print(f"Failed to download {url}: {str(e)}")
 
 # Create images directory if it doesn't exist
 os.makedirs("public/images", exist_ok=True)
 
 # List of meme URLs and their corresponding filenames
 memes = [
-    # Chat section
-    ("https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif", "cat-chat-general.jpg"),
-    ("https://media.giphy.com/media/mlvseq9yvZhba/giphy.gif", "cat-chat-qa.jpg"),
-    ("https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif", "cat-chat-audio.jpg"),
-    ("https://media.giphy.com/media/3oriO0OEd9QIDdllqo/giphy.gif", "cat-chat-video.jpg"),
+    # Title and main sections
+    ("https://raw.githubusercontent.com/AInoob/WhatLLMCanDo/main/public/images/cat-title.jpg", "cat-title.jpg"),  # Wise cat with glasses
+    ("https://raw.githubusercontent.com/AInoob/WhatLLMCanDo/main/public/images/cat-chat-general.jpg", "cat-chat-general.jpg"),  # Cat talking/meowing
+    ("https://raw.githubusercontent.com/AInoob/WhatLLMCanDo/main/public/images/cat-chat-qa.jpg", "cat-chat-qa.jpg"),  # Thinking cat
+    ("https://raw.githubusercontent.com/AInoob/WhatLLMCanDo/main/public/images/cat-chat-audio.jpg", "cat-chat-audio.jpg"),  # Cat with headphones
+    ("https://raw.githubusercontent.com/AInoob/WhatLLMCanDo/main/public/images/cat-chat-video.jpg", "cat-chat-video.jpg"),  # Cat looking at screen
     
     # Coding section
-    ("https://media.giphy.com/media/ule4vhcY1xEKQ/giphy.gif", "cat-coding-general.jpg"),
-    ("https://media.giphy.com/media/LmNwrBhejkK9EFP504/giphy.gif", "cat-coding-completion.jpg"),
-    ("https://media.giphy.com/media/3oKIPnAiaMCws8nOsE/giphy.gif", "cat-coding-review.jpg"),
-    ("https://media.giphy.com/media/13UZisxBxkjPwI/giphy.gif", "cat-coding-task.jpg"),
+    ("https://raw.githubusercontent.com/AInoob/WhatLLMCanDo/main/public/images/cat-coding-general.jpg", "cat-coding-general.jpg"),  # Cat at computer
+    ("https://raw.githubusercontent.com/AInoob/WhatLLMCanDo/main/public/images/cat-coding-completion.jpg", "cat-coding-completion.jpg"),  # Cat typing
+    ("https://raw.githubusercontent.com/AInoob/WhatLLMCanDo/main/public/images/cat-coding-review.jpg", "cat-coding-review.jpg"),  # Cat with glasses looking at screen
+    ("https://raw.githubusercontent.com/AInoob/WhatLLMCanDo/main/public/images/cat-coding-task.jpg", "cat-coding-task.jpg"),  # Cat with checklist
     
     # Other sections
-    ("https://media.giphy.com/media/VbnUQpnihPSIgIXuZv/giphy.gif", "cat-transcribe.jpg"),
-    ("https://media.giphy.com/media/3o6Zt481isNVuQI1l6/giphy.gif", "cat-image-gen.jpg"),
-    ("https://media.giphy.com/media/13CoXDiaCcCoyk/giphy.gif", "cat-search.jpg")
+    ("https://raw.githubusercontent.com/AInoob/WhatLLMCanDo/main/public/images/cat-transcribe.jpg", "cat-transcribe.jpg"),  # Cat with microphone
+    ("https://raw.githubusercontent.com/AInoob/WhatLLMCanDo/main/public/images/cat-image-gen.jpg", "cat-image-gen.jpg"),  # Cat painting/drawing
+    ("https://raw.githubusercontent.com/AInoob/WhatLLMCanDo/main/public/images/cat-search.jpg", "cat-search.jpg")  # Cat with magnifying glass
 ]
 
 for url, filename in memes:
