@@ -98,6 +98,7 @@ function Home() {
                     ))}
                   </motion.div>
                 )}
+              </AnimatePresence>
             </Section>
           </motion.div>
         ))}
