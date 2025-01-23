@@ -19,12 +19,12 @@ const llmCapabilitiesData: CategoryData[] = [
         memeUrl: "/images/cat-chat-qa.jpg"
       },
       {
-        label: "Realtime Audio Conversation",
-        description: "Talk naturally with AI using voice",
+        label: "Realtime Audio",
+        description: "Have voice conversations with AI",
         memeUrl: "/images/cat-chat-audio.jpg"
       },
       {
-        label: "Realtime Video Conversation",
+        label: "Realtime Video",
         description: "Face-to-face conversations with AI",
         memeUrl: "/images/cat-chat-video.jpg"
       }
@@ -32,29 +32,29 @@ const llmCapabilitiesData: CategoryData[] = [
   },
   {
     label: "Coding",
-    description: "AI-powered software development assistance",
+    description: "AI assistance for software development",
     memeUrl: "/images/cat-coding-general.jpg",
     children: [
       {
         label: "Code Completion",
-        description: "Smart code suggestions as you type",
+        description: "Smart code suggestions while typing",
         memeUrl: "/images/cat-coding-completion.jpg"
       },
       {
         label: "Code Review",
-        description: "AI reviews your code for improvements",
+        description: "AI reviewing and suggesting improvements",
         memeUrl: "/images/cat-coding-review.jpg"
       },
       {
         label: "Task Completion",
-        description: "AI helps complete coding tasks",
+        description: "AI completing coding tasks autonomously",
         memeUrl: "/images/cat-coding-task.jpg"
       }
     ]
   },
   {
     label: "Transcribe Audio",
-    description: "Convert speech to text automatically",
+    description: "Convert speech to text with high accuracy",
     memeUrl: "/images/cat-transcribe.jpg"
   },
   {
@@ -64,7 +64,7 @@ const llmCapabilitiesData: CategoryData[] = [
   },
   {
     label: "Search",
-    description: "Find information quickly and accurately",
+    description: "Find information across various sources",
     memeUrl: "/images/cat-search.jpg"
   }
 ];
