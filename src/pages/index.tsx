@@ -47,12 +47,12 @@ const llmCapabilitiesData: CategoryData[] = [
     memeUrl: "/images/cat-search.jpg"
   }
 ];
-
 function Home() {
   const [openSection, setOpenSection] = useState<number | null>(null);
   return (
     <motion.main 
-      className="min-h-screen p-8 max-w-4xl mx-auto"
+      key="main-content"
+      className="min-h-screen p-8 pb-32 max-w-6xl mx-auto"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
@@ -104,7 +104,7 @@ function Home() {
         ))}
       </div>
     </motion.main>
-  )
+  );
 }
 
-export default observer(Home)
+export default observer(Home);

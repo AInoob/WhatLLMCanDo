@@ -24,7 +24,7 @@ def create_meme(image, text, output_path):
     
     # Load font (using system font)
     try:
-        font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 48)
+        font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 72)  # Increased font size for better visibility
     except:
         font = ImageFont.load_default()
     
@@ -49,9 +49,9 @@ def create_meme(image, text, output_path):
     text_w = text_bbox[2] - text_bbox[0]
     text_h = text_bbox[3] - text_bbox[1]
     
-    # Calculate text position (centered, at bottom)
+    # Calculate text position (centered, slightly higher from bottom for better visibility)
     x = (img_w - text_w) // 2
-    y = img_h - text_h - margin * 2
+    y = img_h - text_h - margin * 4  # Increased margin from bottom
     
     # Draw white background with black outline
     padding = 10
