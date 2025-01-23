@@ -1,7 +1,8 @@
 import { observer } from 'mobx-react-lite'
 import { useState } from 'react'
 import { Section } from '../components/Section'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion } from 'framer-motion'
+import { Modal } from '../components/Modal'
 
 interface CategoryData {
   memeUrl: string;
@@ -82,23 +83,19 @@ function Home() {
               memeUrl={category.memeUrl} 
               onClick={() => setOpenSection(openSection === index ? null : index)}
             >
-              <AnimatePresence>
-                {openSection === index && category.children && (
-                  <motion.div
-                    className="mt-4 space-y-4"
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: 'auto' }}
-                    exit={{ opacity: 0, height: 0 }}
-                  >
-                    {category.children.map((child, childIndex) => (
-                      <Section
-                        key={childIndex}
-                        memeUrl={child.memeUrl}
-                      />
-                    ))}
-                  </motion.div>
-                )}
-              </AnimatePresence>
+              <Modal
+                isOpen={openSection === index}
+                onClose={() => setOpenSection(null)}
+              >
+                <div className="space-y-4">
+                  {category.children?.map((child, childIndex) => (
+                    <Section
+                      key={childIndex}
+                      memeUrl={child.memeUrl}
+                    />
+                  ))}
+                </div>
+              </Modal>
             </Section>
           </motion.div>
         ))}
