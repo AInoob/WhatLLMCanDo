@@ -66,7 +66,7 @@ function Home() {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
       >
-        <div className="flex justify-center gap-4 mb-4">
+        <div className="fixed top-4 right-4 flex gap-2 z-50">
           <button
             onClick={() => setLanguage('en')}
             className={`px-4 py-2 rounded ${language === 'en' ? 'bg-blue-500 text-white' : 'bg-gray-200'}`}

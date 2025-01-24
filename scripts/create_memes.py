@@ -24,9 +24,14 @@ def create_meme(image, text, output_path):
     
     # Load font (using system font)
     try:
-        font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 96)  # Further increased font size for better visibility
+        # Use Noto Sans CJK for better Chinese character support
+        font = ImageFont.truetype("/usr/share/fonts/opentype/noto/NotoSansCJK-Bold.ttc", 96)
     except:
-        font = ImageFont.load_default()
+        try:
+            # Fallback to DejaVu Sans if Noto is not available
+            font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 96)
+        except:
+            font = ImageFont.load_default()
     
     # Calculate text size and position
     img_w, img_h = img.size
@@ -35,14 +40,26 @@ def create_meme(image, text, output_path):
     margin = 20
     max_width = int(img_w * 0.8)  # Use 80% of image width
     
-    # Get average character width using textbbox
-    test_text = 'x' * 10
-    test_bbox = draw.textbbox((0, 0), test_text, font=font)
-    avg_char_width = (test_bbox[2] - test_bbox[0]) / 10
+    # Calculate text wrapping based on actual text width
+    def get_text_width(text):
+        bbox = draw.textbbox((0, 0), text, font=font)
+        return bbox[2] - bbox[0]
     
-    # Calculate maximum characters per line
-    max_chars_per_line = int(max_width / avg_char_width)
-    wrapped_text = textwrap.fill(text, width=max_chars_per_line)
+    # Wrap text by measuring actual width
+    words = text.split()
+    lines = []
+    current_line = words[0]
+    
+    for word in words[1:]:
+        test_line = current_line + ' ' + word
+        if get_text_width(test_line) <= max_width:
+            current_line = test_line
+        else:
+            lines.append(current_line)
+            current_line = word
+    
+    lines.append(current_line)
+    wrapped_text = '\n'.join(lines)
     
     # Get text size
     text_bbox = draw.textbbox((0, 0), wrapped_text, font=font)
