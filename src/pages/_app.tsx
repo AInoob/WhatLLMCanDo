@@ -1,5 +1,6 @@
 import type { AppProps } from 'next/app'
 import { configure } from 'mobx'
+import { LanguageProvider } from '../contexts/LanguageContext'
 import '../styles/globals.css'
 
 // Configure MobX
@@ -8,5 +9,9 @@ configure({
 })
 
 export default function App({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+  return (
+    <LanguageProvider>
+      <Component {...pageProps} />
+    </LanguageProvider>
+  )
 }

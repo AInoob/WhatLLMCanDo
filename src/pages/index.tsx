@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { Section } from '../components/Section'
 import { motion } from 'framer-motion'
 import { Modal } from '../components/Modal'
+import { useLanguage } from '../contexts/LanguageContext'
 
 interface CategoryData {
   memeUrl: string;
@@ -11,45 +12,46 @@ interface CategoryData {
 
 const llmCapabilitiesData: CategoryData[] = [
   {
-    memeUrl: "/images/cat-chat-general.jpg",
+    memeUrl: "/cat-chat-general.jpg",
     children: [
       {
-        memeUrl: "/images/cat-chat-qa.jpg"
+        memeUrl: "/cat-chat-qa.jpg"
       },
       {
-        memeUrl: "/images/cat-chat-audio.jpg"
+        memeUrl: "/cat-chat-audio.jpg"
       },
       {
-        memeUrl: "/images/cat-chat-video.jpg"
+        memeUrl: "/cat-chat-video.jpg"
       }
     ]
   },
   {
-    memeUrl: "/images/cat-coding-general.jpg",
+    memeUrl: "/cat-coding-general.jpg",
     children: [
       {
-        memeUrl: "/images/cat-coding-completion.jpg"
+        memeUrl: "/cat-coding-completion.jpg"
       },
       {
-        memeUrl: "/images/cat-coding-review.jpg"
+        memeUrl: "/cat-coding-review.jpg"
       },
       {
-        memeUrl: "/images/cat-coding-task.jpg"
+        memeUrl: "/cat-coding-task.jpg"
       }
     ]
   },
   {
-    memeUrl: "/images/cat-transcribe.jpg"
+    memeUrl: "/cat-transcribe.jpg"
   },
   {
-    memeUrl: "/images/cat-image-gen.jpg"
+    memeUrl: "/cat-image-gen.jpg"
   },
   {
-    memeUrl: "/images/cat-search.jpg"
+    memeUrl: "/cat-search.jpg"
   }
 ];
 function Home() {
   const [openSection, setOpenSection] = useState<number | null>(null);
+  const { language, setLanguage } = useLanguage();
   return (
     <motion.main 
       key="main-content"
@@ -64,8 +66,22 @@ function Home() {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
       >
+        <div className="flex justify-center gap-4 mb-4">
+          <button
+            onClick={() => setLanguage('en')}
+            className={`px-4 py-2 rounded ${language === 'en' ? 'bg-blue-500 text-white' : 'bg-gray-200'}`}
+          >
+            English
+          </button>
+          <button
+            onClick={() => setLanguage('zh')}
+            className={`px-4 py-2 rounded ${language === 'zh' ? 'bg-blue-500 text-white' : 'bg-gray-200'}`}
+          >
+            中文
+          </button>
+        </div>
         <img 
-          src="/images/cat-title.jpg" 
+          src={`/images/${language}/cat-title.jpg`}
           alt="What LLMs Can Do - Title Meme"
           className="max-w-2xl mx-auto rounded-lg shadow-lg"
         />
@@ -80,7 +96,7 @@ function Home() {
             transition={{ delay: 0.2 * index }}
           >
             <Section 
-              memeUrl={category.memeUrl} 
+              memeUrl={`/images/${language}${category.memeUrl}`} 
               onClick={() => setOpenSection(openSection === index ? null : index)}
             >
               <Modal
@@ -91,7 +107,7 @@ function Home() {
                   {category.children?.map((child, childIndex) => (
                     <Section
                       key={childIndex}
-                      memeUrl={child.memeUrl}
+                      memeUrl={`/images/${language}${child.memeUrl}`}
                     />
                   ))}
                 </div>
