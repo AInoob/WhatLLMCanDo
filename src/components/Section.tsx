@@ -1,13 +1,23 @@
 interface SectionProps {
-  title: string;
-  children: React.ReactNode;
+  memeUrl: string;
+  onClick?: () => void;
+  children?: React.ReactNode;
 }
 
-export function Section({ title, children }: SectionProps) {
+export function Section({ memeUrl, onClick, children }: SectionProps) {
   return (
     <section className="mb-12">
-      <h2 className="text-2xl font-bold mb-4 text-gray-800">{title}</h2>
-      <div className="prose max-w-none">{children}</div>
+      <div 
+        className="cursor-pointer"
+        onClick={onClick}
+      >
+        <img 
+          src={memeUrl} 
+          alt="Cat meme explaining LLM capability" 
+          className="rounded-lg shadow-md w-full max-w-2xl mx-auto hover:shadow-lg transition-shadow"
+        />
+      </div>
+      {children}
     </section>
   );
 }

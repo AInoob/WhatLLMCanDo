@@ -1,15 +1,57 @@
-import React from 'react';
-import { observer } from 'mobx-react-lite';
-import { motion } from 'framer-motion';
-import CapabilityCard from '../components/CapabilityCard';
-import llmCapabilitiesJson from '../data/llm_capabilities.json';
-import { CapabilitiesData } from '../types/llm';
-import IssueButton from '../components/IssueButton';
+import { observer } from 'mobx-react-lite'
+import { useState } from 'react'
+import { Section } from '../components/Section'
+import { motion } from 'framer-motion'
+import { Modal } from '../components/Modal'
+import { useLanguage } from '../contexts/LanguageContext'
 
-const capabilities = llmCapabilitiesJson as CapabilitiesData;
+interface CategoryData {
+  memeUrl: string;
+  children?: CategoryData[];
+}
 
-const Home = observer(() => {
-
+const llmCapabilitiesData: CategoryData[] = [
+  {
+    memeUrl: "/cat-chat-general.jpg",
+    children: [
+      {
+        memeUrl: "/cat-chat-qa.jpg"
+      },
+      {
+        memeUrl: "/cat-chat-audio.jpg"
+      },
+      {
+        memeUrl: "/cat-chat-video.jpg"
+      }
+    ]
+  },
+  {
+    memeUrl: "/cat-coding-general.jpg",
+    children: [
+      {
+        memeUrl: "/cat-coding-completion.jpg"
+      },
+      {
+        memeUrl: "/cat-coding-review.jpg"
+      },
+      {
+        memeUrl: "/cat-coding-task.jpg"
+      }
+    ]
+  },
+  {
+    memeUrl: "/cat-transcribe.jpg"
+  },
+  {
+    memeUrl: "/cat-image-gen.jpg"
+  },
+  {
+    memeUrl: "/cat-search.jpg"
+  }
+];
+function Home() {
+  const [openSection, setOpenSection] = useState<number | null>(null);
+  const { language, setLanguage } = useLanguage();
   return (
     <motion.main 
       key="main-content"
@@ -18,52 +60,64 @@ const Home = observer(() => {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
     >
-      <motion.h1 
-        className="text-4xl font-bold mb-8 text-center"
-        key="main-title"
-        initial={{ y: -20 }}
-        animate={{ y: 0 }}
-        transition={{ delay: 0.2, type: "spring" }}
-      >
-        What LLMs Can Do
-      </motion.h1>
-      
-      <motion.p
-        className="text-xl text-center mb-12 text-gray-600"
+      <motion.div 
+        className="text-center mb-12"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 0.3 }}
+        transition={{ duration: 0.5 }}
       >
-        Exploring the capabilities of Large Language Models across different domains
-      </motion.p>
+        <div className="fixed top-4 right-4 flex gap-2 z-50">
+          <button
+            onClick={() => setLanguage('en')}
+            className={`px-4 py-2 rounded ${language === 'en' ? 'bg-blue-500 text-white' : 'bg-gray-200'}`}
+          >
+            English
+          </button>
+          <button
+            onClick={() => setLanguage('zh')}
+            className={`px-4 py-2 rounded ${language === 'zh' ? 'bg-blue-500 text-white' : 'bg-gray-200'}`}
+          >
+            中文
+          </button>
+        </div>
+        <img 
+          src={`/images/${language}/cat-title.jpg`}
+          alt="What LLMs Can Do - Title Meme"
+          className="max-w-2xl mx-auto rounded-lg shadow-lg"
+        />
+      </motion.div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        {Object.entries(capabilities.capabilities)
-          .map(([key, capability]: [string, typeof capabilities.capabilities[keyof typeof capabilities.capabilities]]) => {
-            return [key, capability] as const;
-          })
-          .map(([key, capability], index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 * index }}
+      <div className="space-y-16">
+        {llmCapabilitiesData.map((category, index) => (
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 * index }}
+          >
+            <Section 
+              memeUrl={`/images/${language}${category.memeUrl}`} 
+              onClick={() => setOpenSection(openSection === index ? null : index)}
             >
-              <CapabilityCard
-                title={key === 'chat' ? 'Chat' : key.split('_').map((word: string) => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}
-                description={capability.description}
-                stage={capability.stage}
-                score={capability.score}
-                subsections={capability.subsections}
-                players={capability.top_players}
-              />
-            </motion.div>
-          ))}
+              <Modal
+                isOpen={openSection === index}
+                onClose={() => setOpenSection(null)}
+              >
+                <div className="space-y-4">
+                  {category.children?.map((child, childIndex) => (
+                    <Section
+                      key={childIndex}
+                      memeUrl={`/images/${language}${child.memeUrl}`}
+                    />
+                  ))}
+                </div>
+              </Modal>
+            </Section>
+          </motion.div>
+        ))}
       </div>
-
-      <IssueButton />
     </motion.main>
   );
-});
+}
 
-export default Home;
+export default observer(Home);

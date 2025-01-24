@@ -1,6 +1,6 @@
 import type { AppProps } from 'next/app'
 import { configure } from 'mobx'
-import { GoogleAnalytics } from '@next/third-parties/google'
+import { LanguageProvider } from '../contexts/LanguageContext'
 import '../styles/globals.css'
 
 // Configure MobX
@@ -10,9 +10,8 @@ configure({
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <>
+    <LanguageProvider>
       <Component {...pageProps} />
-      <GoogleAnalytics gaId="G-HK6EYBTQMC" />
-    </>
+    </LanguageProvider>
   )
 }
