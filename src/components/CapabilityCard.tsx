@@ -1,10 +1,70 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 import { Player, Subsection } from '../types/llm';
 import MaturityScore from './MaturityScore';
 import PlayerFeatureTable from './PlayerFeatureTable';
 import SubcategoryPopup from './SubcategoryPopup';
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 30, scale: 0.95 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      type: "spring",
+      stiffness: 100,
+      damping: 15
+    }
+  },
+  hover: {
+    y: -8,
+    scale: 1.02,
+    transition: {
+      type: "spring",
+      stiffness: 400,
+      damping: 25
+    }
+  }
+};
+
+const subsectionVariants = {
+  hidden: { opacity: 0, x: -20 },
+  visible: (i: number) => ({
+    opacity: 1,
+    x: 0,
+    transition: {
+      delay: i * 0.1,
+      type: "spring",
+      stiffness: 100
+    }
+  }),
+  hover: {
+    x: 8,
+    backgroundColor: "rgba(59, 130, 246, 0.1)",
+    transition: { duration: 0.2 }
+  }
+};
+
+const playerVariants = {
+  hidden: { opacity: 0, scale: 0.8 },
+  visible: (i: number) => ({
+    opacity: 1,
+    scale: 1,
+    transition: {
+      delay: i * 0.15,
+      type: "spring",
+      stiffness: 150,
+      damping: 12
+    }
+  }),
+  hover: {
+    scale: 1.03,
+    boxShadow: "0 10px 40px rgba(0, 0, 0, 0.15)",
+    transition: { duration: 0.2 }
+  }
+};
 
 interface CapabilityCardProps {
   title: string;
@@ -53,114 +113,212 @@ const CapabilityCard: React.FC<CapabilityCardProps> = ({
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6"
+      variants={cardVariants}
+      initial="hidden"
+      animate="visible"
+      whileHover="hover"
+      className="glass-card rounded-2xl shadow-xl p-6 card-glow cursor-pointer"
+      style={{
+        transformStyle: "preserve-3d",
+        perspective: "1000px"
+      }}
     >
-      <div className="flex justify-between items-start mb-4">
-        <h3 className="text-xl font-bold">{title}</h3>
-        <div className="flex flex-col items-end">
-          <span className={`px-3 py-1 rounded-full text-sm font-medium ${stageColors[stage]}`}>
+      <motion.div
+        className="flex justify-between items-start mb-4"
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.1 }}
+      >
+        <h3 className="text-xl font-bold bg-gradient-to-r from-gray-900 to-gray-600 dark:from-white dark:to-gray-300 bg-clip-text text-transparent">
+          {title}
+        </h3>
+        <div className="flex flex-col items-end gap-2">
+          <motion.span
+            className={`px-3 py-1 rounded-full text-sm font-medium ${stageColors[stage]} shadow-sm`}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
             {stage}
-          </span>
+          </motion.span>
           <MaturityScore score={score} />
         </div>
-      </div>
-      <p className="text-gray-600 dark:text-gray-300 mb-6">{description}</p>
+      </motion.div>
+      <motion.p
+        className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.2 }}
+      >
+        {description}
+      </motion.p>
       
 
       
-      {subsections && (
-        <div className="mb-6">
-          <h4 className="text-lg font-semibold mb-3">Subsections</h4>
-          <div className="space-y-4">
-            {Object.entries(subsections).map(([name, section]: [string, Subsection], index) => (
-              <div 
-                key={index} 
-                className="border-l-4 border-blue-500 pl-4 cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors rounded-sm"
-                onClick={() => handleSubsectionClick(name, section)}
-              >
-                <div className="flex justify-between items-center">
-                  <div className="font-medium">
-                    {name.split('_').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}
+      <AnimatePresence>
+        {subsections && (
+          <motion.div
+            className="mb-6"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.3 }}
+          >
+            <h4 className="text-lg font-semibold mb-3 flex items-center gap-2">
+              <motion.span
+                className="w-2 h-2 bg-blue-500 rounded-full"
+                animate={{ scale: [1, 1.2, 1] }}
+                transition={{ repeat: Infinity, duration: 2 }}
+              />
+              Subsections
+            </h4>
+            <div className="space-y-3">
+              {Object.entries(subsections).map(([name, section]: [string, Subsection], index) => (
+                <motion.div
+                  key={index}
+                  custom={index}
+                  variants={subsectionVariants}
+                  initial="hidden"
+                  animate="visible"
+                  whileHover="hover"
+                  className="border-l-4 border-blue-500 pl-4 py-2 cursor-pointer rounded-r-lg transition-all"
+                  onClick={() => handleSubsectionClick(name, section)}
+                >
+                  <div className="flex justify-between items-center">
+                    <motion.div
+                      className="font-medium text-gray-800 dark:text-gray-200"
+                      whileHover={{ color: "#3b82f6" }}
+                    >
+                      {name.split('_').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}
+                    </motion.div>
+                    <div className="flex flex-col items-end gap-1">
+                      <motion.span
+                        className={`px-2 py-1 rounded-full text-xs font-medium ${stageColors[section.stage]} shadow-sm`}
+                        whileHover={{ scale: 1.1 }}
+                      >
+                        {section.stage}
+                      </motion.span>
+                      <MaturityScore score={section.score} />
+                    </div>
                   </div>
-                  <div className="flex flex-col items-end">
-                    <span className={`px-2 py-1 rounded-full text-xs font-medium ${stageColors[section.stage]}`}>
-                      {section.stage}
-                    </span>
-                    <MaturityScore score={section.score} />
-                  </div>
-                </div>
-                <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">{section.description}</p>
-                {section.features && (
-                  <div className="mt-4">
-                    <PlayerFeatureTable 
-                      features={section.features}
-                      players={players}
-                    />
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
+                  <p className="text-sm text-gray-600 dark:text-gray-400 mt-1 line-clamp-2">{section.description}</p>
+                  {section.features && (
+                    <motion.div
+                      className="mt-4"
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: "auto" }}
+                      transition={{ delay: 0.2 }}
+                    >
+                      <PlayerFeatureTable
+                        features={section.features}
+                        players={players}
+                      />
+                    </motion.div>
+                  )}
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
       
-      <div className="mb-6">
-        <h4 className="text-lg font-semibold mb-3">Top Players</h4>
-        <div className="space-y-4">
+      <motion.div
+        className="mb-6"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.4 }}
+      >
+        <h4 className="text-lg font-semibold mb-3 flex items-center gap-2">
+          <motion.span
+            className="w-2 h-2 bg-purple-500 rounded-full"
+            animate={{ scale: [1, 1.2, 1] }}
+            transition={{ repeat: Infinity, duration: 2, delay: 0.5 }}
+          />
+          Top Players
+        </h4>
+        <div className="space-y-3">
           {players.map((player, index) => (
-            <div key={index} className="border-l-4 border-blue-500 pl-4">
-              <div className="flex items-center space-x-2">
+            <motion.div
+              key={index}
+              custom={index}
+              variants={playerVariants}
+              initial="hidden"
+              animate="visible"
+              whileHover="hover"
+              className="border-l-4 border-purple-500 pl-4 py-3 rounded-r-lg bg-gradient-to-r from-transparent to-purple-50 dark:to-purple-900/20"
+            >
+              <div className="flex items-center space-x-3">
                 {player.iconUrl && (
-                  <Image 
-                    src={player.iconUrl} 
-                    alt={`${player.name} icon`}
-                    width={24}
-                    height={24}
-                    className="rounded-full"
-                    unoptimized
-                    loader={({ src }) => src.startsWith('/') ? src : `/${src}`}
-                  />
+                  <motion.div
+                    whileHover={{ scale: 1.2, rotate: 360 }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    <Image
+                      src={player.iconUrl}
+                      alt={`${player.name} icon`}
+                      width={28}
+                      height={28}
+                      className="rounded-full ring-2 ring-purple-200 dark:ring-purple-700"
+                      unoptimized
+                      loader={({ src }) => src.startsWith('/') ? src : `/${src}`}
+                    />
+                  </motion.div>
                 )}
                 <div>
-                  <div className="font-medium">{player.name}</div>
+                  <div className="font-medium text-gray-800 dark:text-gray-200">{player.name}</div>
                   <div className="text-sm text-gray-500">{player.company}</div>
                   {player.context_window && (
-                    <div className="text-xs text-blue-600 dark:text-blue-400">
+                    <motion.div
+                      className="text-xs text-blue-600 dark:text-blue-400 font-medium"
+                      initial={{ opacity: 0, x: -10 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.3 }}
+                    >
                       Context: {(player.context_window / 1000).toFixed(0)}k tokens
-                    </div>
+                    </motion.div>
                   )}
                 </div>
               </div>
-              <ul className="mt-2 list-disc list-inside text-sm">
+              <ul className="mt-2 space-y-1 text-sm">
                 {player.notable_features.map((feature, idx) => (
-                  <li key={idx} className="text-gray-600 dark:text-gray-400">{feature}</li>
+                  <motion.li
+                    key={idx}
+                    className="text-gray-600 dark:text-gray-400 flex items-center gap-2"
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.1 * idx }}
+                  >
+                    <span className="w-1.5 h-1.5 bg-gray-400 rounded-full" />
+                    {feature}
+                  </motion.li>
                 ))}
               </ul>
               {player.benchmark_scores && (
-                <div className="mt-2 text-xs space-y-1">
+                <motion.div
+                  className="mt-3 flex flex-wrap gap-2"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.4 }}
+                >
                   {player.benchmark_scores.mmlu && (
-                    <div className="text-green-600 dark:text-green-400">
+                    <span className="px-2 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 rounded-full text-xs font-medium">
                       MMLU: {player.benchmark_scores.mmlu.toFixed(1)}%
-                    </div>
+                    </span>
                   )}
                   {player.benchmark_scores.humaneval && (
-                    <div className="text-blue-600 dark:text-blue-400">
+                    <span className="px-2 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 rounded-full text-xs font-medium">
                       HumanEval: {player.benchmark_scores.humaneval.toFixed(1)}%
-                    </div>
+                    </span>
                   )}
                   {player.benchmark_scores.swe_bench && (
-                    <div className="text-purple-600 dark:text-purple-400">
+                    <span className="px-2 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-400 rounded-full text-xs font-medium">
                       SWE-bench: {player.benchmark_scores.swe_bench.toFixed(1)}%
-                    </div>
+                    </span>
                   )}
-                </div>
+                </motion.div>
               )}
-            </div>
+            </motion.div>
           ))}
         </div>
-      </div>
+      </motion.div>
 
 
       {isPopupOpen && selectedSubsection && (
